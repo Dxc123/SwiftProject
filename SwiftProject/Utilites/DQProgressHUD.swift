@@ -26,19 +26,19 @@ class DQProgressHUD {
         inView.addSubview(HUD)
         HUD.show(animated: true)
         
-        HUD.hide(animated: true, afterDelay: kDuration_Of_HUD)
+        HUD.hide(animated: true, afterDelay: 1)
     }
 //   错误
     class func showError(at view: UIView?, text: String?) {
         let errorView = UIImageView(image: UIImage(named: "hud_error"))
         let HUD = show(at: view, text: text, customView: errorView, global: true)
-        HUD.hide(animated: true, afterDelay: kDuration_Of_HUD)
+        HUD.hide(animated: true, afterDelay: 1)
     }
 //    成功
     class func showSuccess(at view: UIView?, text: String?) {
         let successView = UIImageView(image: UIImage(named: "hud_success"))
         let HUD = show(at: view, text: text, customView: successView, global: true)
-        HUD.hide(animated: true, afterDelay: kDuration_Of_HUD)
+        HUD.hide(animated: true, afterDelay: 1)
     }
     
     @discardableResult class func showHUD(at view: UIView?, text: String?, global: Bool = true) -> MBProgressHUD {

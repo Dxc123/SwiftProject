@@ -11,7 +11,7 @@ import UIKit
 extension UIButton {
     
     @objc func set(image anImage: UIImage?, title: String,
-                   titlePosition: UIViewContentMode, additionalSpacing: CGFloat, state: UIControlState){
+                   titlePosition: UIView.ContentMode, additionalSpacing: CGFloat, state: UIControl.State){
         self.imageView?.contentMode = .center
         self.setImage(anImage, for: state)
         
@@ -21,11 +21,11 @@ extension UIButton {
         self.setTitle(title, for: state)
     }
     
-    private func positionLabelRespectToImage(title: String, position: UIViewContentMode,
+    private func positionLabelRespectToImage(title: String, position: UIView.ContentMode,
                                              spacing: CGFloat) {
         let imageSize = self.imageRect(forContentRect: self.frame)
         let titleFont = self.titleLabel?.font!
-        let titleSize = title.size(attributes: [NSFontAttributeName: titleFont!])
+        let titleSize = title.size(withAttributes: [NSAttributedString.Key.font: titleFont!])
         
         var titleInsets: UIEdgeInsets
         var imageInsets: UIEdgeInsets

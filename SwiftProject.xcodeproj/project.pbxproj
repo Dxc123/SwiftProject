@@ -27,6 +27,9 @@
 		C04755A5244067B200665E0C /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04755A4244067B200665E0C /* UIViewControllerExtensions.swift */; };
 		C04755A7244067FA00665E0C /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04755A6244067FA00665E0C /* UIButtonExtensions.swift */; };
 		C04755AB2440688B00665E0C /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = C04755AA2440688B00665E0C /* Tools.m */; };
+		C04755AD24406E0600665E0C /* CJKTBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04755AC24406E0600665E0C /* CJKTBaseViewController.swift */; };
+		C04755AF24406E2900665E0C /* CJKTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04755AE24406E2900665E0C /* CJKTTabBarController.swift */; };
+		C04755B124406E4100665E0C /* CJKTNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04755B024406E4100665E0C /* CJKTNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,9 @@
 		C04755A82440688A00665E0C /* SwiftProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		C04755A92440688B00665E0C /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
 		C04755AA2440688B00665E0C /* Tools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
+		C04755AC24406E0600665E0C /* CJKTBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTBaseViewController.swift; sourceTree = "<group>"; };
+		C04755AE24406E2900665E0C /* CJKTTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTTabBarController.swift; sourceTree = "<group>"; };
+		C04755B024406E4100665E0C /* CJKTNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTNavigationController.swift; sourceTree = "<group>"; };
 		E7FFB2CE5874B5EDE7E34039 /* Pods-SwiftProject-SwiftProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftProject-SwiftProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-SwiftProject-SwiftProjectUITests/Pods-SwiftProject-SwiftProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EBAC04A7DAF1FE2614A2C31E /* Pods-SwiftProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftProjectTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftProjectTests/Pods-SwiftProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +194,9 @@
 		C047558724405D2100665E0C /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				C04755AC24406E0600665E0C /* CJKTBaseViewController.swift */,
+				C04755AE24406E2900665E0C /* CJKTTabBarController.swift */,
+				C04755B024406E4100665E0C /* CJKTNavigationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -338,6 +347,7 @@
 		C047554C2440526C00665E0C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CJKT;
 				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = Dxc_iOS;
@@ -519,6 +529,9 @@
 				C0475591244064FC00665E0C /* GlobalConstants.swift in Sources */,
 				C047555A2440526C00665E0C /* SceneDelegate.swift in Sources */,
 				C04755A7244067FA00665E0C /* UIButtonExtensions.swift in Sources */,
+				C04755B124406E4100665E0C /* CJKTNavigationController.swift in Sources */,
+				C04755AD24406E0600665E0C /* CJKTBaseViewController.swift in Sources */,
+				C04755AF24406E2900665E0C /* CJKTTabBarController.swift in Sources */,
 				C0475597244066E500665E0C /* UIImageEXtensions.swift in Sources */,
 				C0475595244066CA00665E0C /* UIViewExtensions.swift in Sources */,
 				C04755A32440674700665E0C /* DQProgressHUD.swift in Sources */,
