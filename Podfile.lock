@@ -1,0 +1,79 @@
+PODS:
+  - Alamofire (4.9.1)
+  - Alamofire-SwiftyJSON (3.0.0):
+    - Alamofire (~> 4.5)
+    - SwiftyJSON (~> 4.0.0)
+  - HandyJSON (5.0.1)
+  - Kingfisher (5.13.3):
+    - Kingfisher/Core (= 5.13.3)
+  - Kingfisher/Core (5.13.3)
+  - MBProgressHUD (1.2.0)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - ObjectMapper (3.5.2)
+  - PKHUD (5.3.0)
+  - ReachabilitySwift (5.0.0)
+  - Result (4.1.0)
+  - Reusable (4.1.1):
+    - Reusable/Storyboard (= 4.1.1)
+    - Reusable/View (= 4.1.1)
+  - Reusable/Storyboard (4.1.1)
+  - Reusable/View (4.1.1)
+  - SnapKit (5.0.1)
+  - SwiftyJSON (4.0.0)
+  - Then (2.6.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Alamofire-SwiftyJSON
+  - HandyJSON
+  - Kingfisher
+  - MBProgressHUD
+  - Moya
+  - ObjectMapper
+  - PKHUD
+  - ReachabilitySwift
+  - Reusable
+  - SnapKit
+  - SwiftyJSON
+  - Then
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Alamofire-SwiftyJSON
+    - HandyJSON
+    - Kingfisher
+    - MBProgressHUD
+    - Moya
+    - ObjectMapper
+    - PKHUD
+    - ReachabilitySwift
+    - Result
+    - Reusable
+    - SnapKit
+    - SwiftyJSON
+    - Then
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Alamofire-SwiftyJSON: 2b3649d57dc7bb2880fb8b86f8bb969397666916
+  HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
+  Kingfisher: d2b3d6a7200c93b34de9afcdf25c8dd9282ec277
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
+
+PODFILE CHECKSUM: f5113a35b5312253f7bc5232ef3ecce7e747073a
+
+COCOAPODS: 1.9.1
