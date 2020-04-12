@@ -1,5 +1,5 @@
 //
-//  CJKTBaseViewController.swift
+//  CJKTHomeViewController.swift
 //  SwiftProject
 //
 //  Created by daixingchuang on 2020/4/10.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class CJKTBaseViewController: UIViewController {
+class CJKTHomeViewController: CJKTBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        CJKTLog("kBottomSafeAreaHeight =\(kBottomSafeAreaHeight)");
     }
     
 

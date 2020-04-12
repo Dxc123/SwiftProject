@@ -10,6 +10,7 @@
 		1F62D0918FFA566952CB18AB /* Pods_SwiftProject_SwiftProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 752279D3AF201F4BA08AF240 /* Pods_SwiftProject_SwiftProjectUITests.framework */; };
 		3825789653B58C84A208BD2A /* Pods_SwiftProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8316D11444038409B7DB2193 /* Pods_SwiftProject.framework */; };
 		8D3CA1825FE472F96590456E /* Pods_SwiftProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE06A7F8311EA8C1A1F5BAC /* Pods_SwiftProjectTests.framework */; };
+		C00A005724420B39004B5152 /* CJKTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A005624420B39004B5152 /* CJKTModel.swift */; };
 		C04755582440526C00665E0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04755572440526C00665E0C /* AppDelegate.swift */; };
 		C047555A2440526C00665E0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04755592440526C00665E0C /* SceneDelegate.swift */; };
 		C047555C2440526C00665E0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C047555B2440526C00665E0C /* ViewController.swift */; };
@@ -30,6 +31,21 @@
 		C04755AD24406E0600665E0C /* CJKTBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04755AC24406E0600665E0C /* CJKTBaseViewController.swift */; };
 		C04755AF24406E2900665E0C /* CJKTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04755AE24406E2900665E0C /* CJKTTabBarController.swift */; };
 		C04755B124406E4100665E0C /* CJKTNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04755B024406E4100665E0C /* CJKTNavigationController.swift */; };
+		C047FA96244302ED00A8FFB5 /* CJKTBaseTableViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C047FA95244302ED00A8FFB5 /* CJKTBaseTableViewView.swift */; };
+		C047FA98244303C800A8FFB5 /* CJKTBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C047FA97244303C800A8FFB5 /* CJKTBaseCollectionViewCell.swift */; };
+		C047FA9A2443048300A8FFB5 /* CJKTBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C047FA992443048300A8FFB5 /* CJKTBaseTableViewCell.swift */; };
+		C047FA9C2443051F00A8FFB5 /* CJKTBaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C047FA9B2443051F00A8FFB5 /* CJKTBaseCollectionReusableView.swift */; };
+		C047FA9E2443061700A8FFB5 /* CJKTRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = C047FA9D2443061700A8FFB5 /* CJKTRefresh.swift */; };
+		C047FAA02443071800A8FFB5 /* CJKTEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C047FA9F2443071800A8FFB5 /* CJKTEmptyView.swift */; };
+		C047FAA524431EF200A8FFB5 /* CJKTMoyaAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C047FAA424431EF200A8FFB5 /* CJKTMoyaAPIProvider.swift */; };
+		C07BBE372441509100920CA8 /* CJKTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BBE362441509100920CA8 /* CJKTAPI.swift */; };
+		C07BBE3B244150DE00920CA8 /* CJKTMoyaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BBE3A244150DE00920CA8 /* CJKTMoyaManager.swift */; };
+		C09447CA2440A9DA001E43D7 /* CJKTJsonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09447C92440A9DA001E43D7 /* CJKTJsonUtil.swift */; };
+		C09447CC2440AA4B001E43D7 /* CJKTBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09447CB2440AA4B001E43D7 /* CJKTBaseModel.swift */; };
+		C09447CE2440B491001E43D7 /* CJKTHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09447CD2440B491001E43D7 /* CJKTHomeViewController.swift */; };
+		C09447D02440B4A3001E43D7 /* CJKTSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09447CF2440B4A3001E43D7 /* CJKTSecondViewController.swift */; };
+		C09447D22440B4AF001E43D7 /* CJKTThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09447D12440B4AF001E43D7 /* CJKTThirdViewController.swift */; };
+		C09447D42440B4BC001E43D7 /* CJKTFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09447D32440B4BC001E43D7 /* CJKTFourViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +73,7 @@
 		8316D11444038409B7DB2193 /* Pods_SwiftProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2431F2B2D868A81BC13D281 /* Pods-SwiftProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftProject.release.xcconfig"; path = "Target Support Files/Pods-SwiftProject/Pods-SwiftProject.release.xcconfig"; sourceTree = "<group>"; };
 		BDE06A7F8311EA8C1A1F5BAC /* Pods_SwiftProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C00A005624420B39004B5152 /* CJKTModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTModel.swift; sourceTree = "<group>"; };
 		C04755542440526C00665E0C /* SwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04755572440526C00665E0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C04755592440526C00665E0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +102,21 @@
 		C04755AC24406E0600665E0C /* CJKTBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTBaseViewController.swift; sourceTree = "<group>"; };
 		C04755AE24406E2900665E0C /* CJKTTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTTabBarController.swift; sourceTree = "<group>"; };
 		C04755B024406E4100665E0C /* CJKTNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTNavigationController.swift; sourceTree = "<group>"; };
+		C047FA95244302ED00A8FFB5 /* CJKTBaseTableViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTBaseTableViewView.swift; sourceTree = "<group>"; };
+		C047FA97244303C800A8FFB5 /* CJKTBaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTBaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		C047FA992443048300A8FFB5 /* CJKTBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTBaseTableViewCell.swift; sourceTree = "<group>"; };
+		C047FA9B2443051F00A8FFB5 /* CJKTBaseCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTBaseCollectionReusableView.swift; sourceTree = "<group>"; };
+		C047FA9D2443061700A8FFB5 /* CJKTRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTRefresh.swift; sourceTree = "<group>"; };
+		C047FA9F2443071800A8FFB5 /* CJKTEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTEmptyView.swift; sourceTree = "<group>"; };
+		C047FAA424431EF200A8FFB5 /* CJKTMoyaAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTMoyaAPIProvider.swift; sourceTree = "<group>"; };
+		C07BBE362441509100920CA8 /* CJKTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTAPI.swift; sourceTree = "<group>"; };
+		C07BBE3A244150DE00920CA8 /* CJKTMoyaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTMoyaManager.swift; sourceTree = "<group>"; };
+		C09447C92440A9DA001E43D7 /* CJKTJsonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTJsonUtil.swift; sourceTree = "<group>"; };
+		C09447CB2440AA4B001E43D7 /* CJKTBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTBaseModel.swift; sourceTree = "<group>"; };
+		C09447CD2440B491001E43D7 /* CJKTHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTHomeViewController.swift; sourceTree = "<group>"; };
+		C09447CF2440B4A3001E43D7 /* CJKTSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTSecondViewController.swift; sourceTree = "<group>"; };
+		C09447D12440B4AF001E43D7 /* CJKTThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTThirdViewController.swift; sourceTree = "<group>"; };
+		C09447D32440B4BC001E43D7 /* CJKTFourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTFourViewController.swift; sourceTree = "<group>"; };
 		E7FFB2CE5874B5EDE7E34039 /* Pods-SwiftProject-SwiftProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftProject-SwiftProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-SwiftProject-SwiftProjectUITests/Pods-SwiftProject-SwiftProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EBAC04A7DAF1FE2614A2C31E /* Pods-SwiftProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftProjectTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftProjectTests/Pods-SwiftProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,9 +226,8 @@
 		C047558724405D2100665E0C /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				C04755AC24406E0600665E0C /* CJKTBaseViewController.swift */,
-				C04755AE24406E2900665E0C /* CJKTTabBarController.swift */,
-				C04755B024406E4100665E0C /* CJKTNavigationController.swift */,
+				C047FA942443025D00A8FFB5 /* ViewController */,
+				C047FA932443025500A8FFB5 /* View */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -216,6 +247,7 @@
 		C047558924405F4900665E0C /* Four */ = {
 			isa = PBXGroup;
 			children = (
+				C09447D32440B4BC001E43D7 /* CJKTFourViewController.swift */,
 			);
 			path = Four;
 			sourceTree = "<group>";
@@ -223,6 +255,7 @@
 		C047558A24405F6000665E0C /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				C09447D12440B4AF001E43D7 /* CJKTThirdViewController.swift */,
 			);
 			path = Third;
 			sourceTree = "<group>";
@@ -230,6 +263,7 @@
 		C047558B24405F6A00665E0C /* Second */ = {
 			isa = PBXGroup;
 			children = (
+				C09447CF2440B4A3001E43D7 /* CJKTSecondViewController.swift */,
 			);
 			path = Second;
 			sourceTree = "<group>";
@@ -237,6 +271,7 @@
 		C047558C24405F7400665E0C /* First */ = {
 			isa = PBXGroup;
 			children = (
+				C09447CD2440B491001E43D7 /* CJKTHomeViewController.swift */,
 			);
 			path = First;
 			sourceTree = "<group>";
@@ -252,13 +287,9 @@
 			isa = PBXGroup;
 			children = (
 				C0475590244064FC00665E0C /* GlobalConstants.swift */,
-				C0475592244066AE00665E0C /* UIColorExtensions.swift */,
-				C0475594244066CA00665E0C /* UIViewExtensions.swift */,
-				C0475596244066E500665E0C /* UIImageEXtensions.swift */,
-				C04755982440670100665E0C /* StringExtensions.swift */,
-				C04755A4244067B200665E0C /* UIViewControllerExtensions.swift */,
-				C04755A6244067FA00665E0C /* UIButtonExtensions.swift */,
-				C047559E2440674700665E0C /* DQProgressHUD.swift */,
+				C047FA922443020300A8FFB5 /* Component */,
+				C047FA912443016900A8FFB5 /* Extension */,
+				C07BBE342441504900920CA8 /* Network */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -268,6 +299,63 @@
 			children = (
 			);
 			path = "Vendors ";
+			sourceTree = "<group>";
+		};
+		C047FA912443016900A8FFB5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C0475592244066AE00665E0C /* UIColorExtensions.swift */,
+				C0475594244066CA00665E0C /* UIViewExtensions.swift */,
+				C0475596244066E500665E0C /* UIImageEXtensions.swift */,
+				C04755982440670100665E0C /* StringExtensions.swift */,
+				C04755A4244067B200665E0C /* UIViewControllerExtensions.swift */,
+				C04755A6244067FA00665E0C /* UIButtonExtensions.swift */,
+				C09447C92440A9DA001E43D7 /* CJKTJsonUtil.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C047FA922443020300A8FFB5 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				C047559E2440674700665E0C /* DQProgressHUD.swift */,
+				C047FA9D2443061700A8FFB5 /* CJKTRefresh.swift */,
+				C047FA9F2443071800A8FFB5 /* CJKTEmptyView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		C047FA932443025500A8FFB5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C047FA95244302ED00A8FFB5 /* CJKTBaseTableViewView.swift */,
+				C047FA97244303C800A8FFB5 /* CJKTBaseCollectionViewCell.swift */,
+				C047FA992443048300A8FFB5 /* CJKTBaseTableViewCell.swift */,
+				C047FA9B2443051F00A8FFB5 /* CJKTBaseCollectionReusableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C047FA942443025D00A8FFB5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C09447CB2440AA4B001E43D7 /* CJKTBaseModel.swift */,
+				C04755AC24406E0600665E0C /* CJKTBaseViewController.swift */,
+				C04755AE24406E2900665E0C /* CJKTTabBarController.swift */,
+				C04755B024406E4100665E0C /* CJKTNavigationController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C07BBE342441504900920CA8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C00A005624420B39004B5152 /* CJKTModel.swift */,
+				C07BBE362441509100920CA8 /* CJKTAPI.swift */,
+				C07BBE3A244150DE00920CA8 /* CJKTMoyaManager.swift */,
+				C047FAA424431EF200A8FFB5 /* CJKTMoyaAPIProvider.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		FF2CEE32AF2F26F5447141C2 /* Frameworks */ = {
@@ -522,18 +610,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				C04755992440670100665E0C /* StringExtensions.swift in Sources */,
+				C09447CA2440A9DA001E43D7 /* CJKTJsonUtil.swift in Sources */,
+				C047FAA02443071800A8FFB5 /* CJKTEmptyView.swift in Sources */,
 				C04755A5244067B200665E0C /* UIViewControllerExtensions.swift in Sources */,
 				C047555C2440526C00665E0C /* ViewController.swift in Sources */,
+				C047FA9A2443048300A8FFB5 /* CJKTBaseTableViewCell.swift in Sources */,
+				C09447CC2440AA4B001E43D7 /* CJKTBaseModel.swift in Sources */,
 				C04755AB2440688B00665E0C /* Tools.m in Sources */,
+				C047FAA524431EF200A8FFB5 /* CJKTMoyaAPIProvider.swift in Sources */,
+				C09447D02440B4A3001E43D7 /* CJKTSecondViewController.swift in Sources */,
 				C04755582440526C00665E0C /* AppDelegate.swift in Sources */,
 				C0475591244064FC00665E0C /* GlobalConstants.swift in Sources */,
 				C047555A2440526C00665E0C /* SceneDelegate.swift in Sources */,
+				C09447D22440B4AF001E43D7 /* CJKTThirdViewController.swift in Sources */,
 				C04755A7244067FA00665E0C /* UIButtonExtensions.swift in Sources */,
 				C04755B124406E4100665E0C /* CJKTNavigationController.swift in Sources */,
 				C04755AD24406E0600665E0C /* CJKTBaseViewController.swift in Sources */,
+				C047FA9E2443061700A8FFB5 /* CJKTRefresh.swift in Sources */,
+				C07BBE3B244150DE00920CA8 /* CJKTMoyaManager.swift in Sources */,
+				C07BBE372441509100920CA8 /* CJKTAPI.swift in Sources */,
+				C09447D42440B4BC001E43D7 /* CJKTFourViewController.swift in Sources */,
+				C00A005724420B39004B5152 /* CJKTModel.swift in Sources */,
+				C047FA98244303C800A8FFB5 /* CJKTBaseCollectionViewCell.swift in Sources */,
+				C047FA96244302ED00A8FFB5 /* CJKTBaseTableViewView.swift in Sources */,
 				C04755AF24406E2900665E0C /* CJKTTabBarController.swift in Sources */,
 				C0475597244066E500665E0C /* UIImageEXtensions.swift in Sources */,
 				C0475595244066CA00665E0C /* UIViewExtensions.swift in Sources */,
+				C047FA9C2443051F00A8FFB5 /* CJKTBaseCollectionReusableView.swift in Sources */,
+				C09447CE2440B491001E43D7 /* CJKTHomeViewController.swift in Sources */,
 				C04755A32440674700665E0C /* DQProgressHUD.swift in Sources */,
 				C0475593244066AE00665E0C /* UIColorExtensions.swift in Sources */,
 			);

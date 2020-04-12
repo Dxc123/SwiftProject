@@ -22,7 +22,12 @@ target 'SwiftProject' do
     pod 'ReachabilitySwift' #检查网络
     pod 'Reusable'#重用视图(UITableViewCells, UICollectionViewCells等）
     pod 'Then'#swift初始化库
-    pod 'MBProgressHUD'#swift初始化库
+    pod 'IQKeyboardManagerSwift'
+    pod 'EmptyDataSet-Swift'
+    
+    pod 'MBProgressHUD'
+    pod 'MJRefresh'
+    
 
 
   target 'SwiftProjectTests' do

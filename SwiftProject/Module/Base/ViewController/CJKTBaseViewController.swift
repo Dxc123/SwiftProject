@@ -1,5 +1,5 @@
 //
-//  CJKTNavigationController.swift
+//  CJKTBaseViewController.swift
 //  SwiftProject
 //
 //  Created by daixingchuang on 2020/4/10.
@@ -8,12 +8,17 @@
 
 import UIKit
 
-class CJKTNavigationController: UINavigationController {
+class CJKTBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.white
+        if #available(iOS 11.0, *) {
+            UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
     }
     
 
@@ -27,4 +32,11 @@ class CJKTNavigationController: UINavigationController {
     }
     */
 
+}
+
+extension CJKTBaseViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
 }

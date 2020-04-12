@@ -1,5 +1,5 @@
 //
-//  CJKTTabBarController.swift
+//  CJKTThirdViewController.swift
 //  SwiftProject
 //
 //  Created by daixingchuang on 2020/4/10.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CJKTTabBarController: UITabBarController {
+class CJKTThirdViewController: CJKTBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

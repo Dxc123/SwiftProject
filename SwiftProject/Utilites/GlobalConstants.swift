@@ -19,12 +19,25 @@ import UIKit
 let SCREEN_HEIGHT = UIScreen.main.bounds.height
 /// 屏幕宽度
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width;
-/// 导航栏高度
-let kNavBarHeight = 44.0;
-/// 状态栏高度
-let kStatusBarHeight = 20.0;
-/// Tab栏高度
-let kTabBarHeight = 49.0;
+///// 导航栏高度
+//let kNavBarHeight = 44.0;
+///// 状态栏高度
+//let kStatusBarHeight = 20.0;
+///// Tab栏高度
+//let kTabBarHeight = 49.0;
+
+//适配全面屏iPhone X系列
+
+//底部的安全距离
+let kBottomSafeAreaHeight =  UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0
+//顶部的安全距离
+let topSafeAreaHeight = (kBottomSafeAreaHeight == 0 ? 0 : 24)
+//状态栏高度
+let kStatusBarHeight = (kBottomSafeAreaHeight == 0 ? 20 : 44)
+//导航栏高度
+let kNavBarHeight = (kBottomSafeAreaHeight == 0 ? 64 : 88)
+//tabbar高度
+let kTabBarHeight = (kBottomSafeAreaHeight + 49)
 
 
 // MARK: - 适配
@@ -99,7 +112,20 @@ func CJKTLog<T>(_ message:T, file:String = #file, function:String = #function,
     #endif
 }
 
+
+
 //MARK:--topVC
+
+var topVC: UIViewController? {
+    var resultVC: UIViewController?
+    
+//    resultVC = _topVC(UIApplication.shared.keyWindow?.rootViewController)
+     resultVC = _topVC(UIApplication.shared.delegate?.window??.rootViewController)
+    while resultVC?.presentedViewController != nil {
+        resultVC = _topVC(resultVC?.presentedViewController)
+    }
+    return resultVC
+}
 private  func _topVC(_ vc: UIViewController?) -> UIViewController? {
     if vc is UINavigationController {
         return _topVC((vc as? UINavigationController)?.topViewController)
