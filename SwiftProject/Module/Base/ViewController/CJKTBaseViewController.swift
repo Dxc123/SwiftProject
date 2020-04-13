@@ -19,8 +19,11 @@ class CJKTBaseViewController: UIViewController {
         } else {
             automaticallyAdjustsScrollViewInsets = false
         }
+        
+         configUI()
     }
     
+     func configUI() {}
 
     /*
     // MARK: - Navigation

@@ -46,6 +46,8 @@
 		C09447D02440B4A3001E43D7 /* CJKTSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09447CF2440B4A3001E43D7 /* CJKTSecondViewController.swift */; };
 		C09447D22440B4AF001E43D7 /* CJKTThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09447D12440B4AF001E43D7 /* CJKTThirdViewController.swift */; };
 		C09447D42440B4BC001E43D7 /* CJKTFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09447D32440B4BC001E43D7 /* CJKTFourViewController.swift */; };
+		C0CE9BC72443F34C00DC39EC /* CJKTSecondCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE9BC62443F34C00DC39EC /* CJKTSecondCollectionCell.swift */; };
+		C0CE9BC92443F47D00DC39EC /* CJKTSecondCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE9BC82443F47D00DC39EC /* CJKTSecondCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,8 @@
 		C09447CF2440B4A3001E43D7 /* CJKTSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTSecondViewController.swift; sourceTree = "<group>"; };
 		C09447D12440B4AF001E43D7 /* CJKTThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTThirdViewController.swift; sourceTree = "<group>"; };
 		C09447D32440B4BC001E43D7 /* CJKTFourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTFourViewController.swift; sourceTree = "<group>"; };
+		C0CE9BC62443F34C00DC39EC /* CJKTSecondCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTSecondCollectionCell.swift; sourceTree = "<group>"; };
+		C0CE9BC82443F47D00DC39EC /* CJKTSecondCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTSecondCollectionReusableView.swift; sourceTree = "<group>"; };
 		E7FFB2CE5874B5EDE7E34039 /* Pods-SwiftProject-SwiftProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftProject-SwiftProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-SwiftProject-SwiftProjectUITests/Pods-SwiftProject-SwiftProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EBAC04A7DAF1FE2614A2C31E /* Pods-SwiftProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftProjectTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftProjectTests/Pods-SwiftProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				C09447CF2440B4A3001E43D7 /* CJKTSecondViewController.swift */,
+				C0CE9BC62443F34C00DC39EC /* CJKTSecondCollectionCell.swift */,
+				C0CE9BC82443F47D00DC39EC /* CJKTSecondCollectionReusableView.swift */,
 			);
 			path = Second;
 			sourceTree = "<group>";
@@ -622,6 +628,8 @@
 				C04755582440526C00665E0C /* AppDelegate.swift in Sources */,
 				C0475591244064FC00665E0C /* GlobalConstants.swift in Sources */,
 				C047555A2440526C00665E0C /* SceneDelegate.swift in Sources */,
+				C0CE9BC92443F47D00DC39EC /* CJKTSecondCollectionReusableView.swift in Sources */,
+				C0CE9BC72443F34C00DC39EC /* CJKTSecondCollectionCell.swift in Sources */,
 				C09447D22440B4AF001E43D7 /* CJKTThirdViewController.swift in Sources */,
 				C04755A7244067FA00665E0C /* UIButtonExtensions.swift in Sources */,
 				C04755B124406E4100665E0C /* CJKTNavigationController.swift in Sources */,
