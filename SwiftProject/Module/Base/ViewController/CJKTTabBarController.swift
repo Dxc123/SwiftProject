@@ -39,6 +39,13 @@ class CJKTTabBarController: UITabBarController {
                                title: "我的",
                                image: UIImage(named: "tab_mine"),
                                selectedImage: UIImage(named: "tab_mine_S"))
+        let loginVC = CJKTLoginViewController()
+        addChildViewController(loginVC,
+                               title: "登录",
+                               image: UIImage(named: "tab_mine"),
+                               selectedImage: UIImage(named: "tab_mine_S"))
+        
+        
     }
     
 

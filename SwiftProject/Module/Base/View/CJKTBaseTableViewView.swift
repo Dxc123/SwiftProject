@@ -8,6 +8,13 @@
 
 import UIKit
 import Reusable
+import SnapKit
+import Kingfisher
+import SwiftyJSON
+import HandyJSON
+import PKHUD
+
+import Then
 class CJKTBaseTableViewView: UITableViewHeaderFooterView, Reusable {
     
     override init(reuseIdentifier: String?) {

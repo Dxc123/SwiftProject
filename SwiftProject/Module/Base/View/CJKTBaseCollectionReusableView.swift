@@ -8,6 +8,11 @@
 
 import UIKit
 import Reusable
+import SnapKit
+import Kingfisher
+import SwiftyJSON
+import HandyJSON
+import PKHUD
 class CJKTBaseCollectionReusableView: UICollectionReusableView, Reusable {
     override init(frame: CGRect) {
        super.init(frame: frame)

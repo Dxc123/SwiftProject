@@ -33,7 +33,7 @@ extension UIColor {
         return image!
     }
     
-    class func hex(hexString: String) -> UIColor {
+    class func colorWithHexString(hexString: String) -> UIColor {
         var cString: String = hexString.trimmingCharacters(in: .whitespacesAndNewlines)
         if cString.count < 6 { return UIColor.black }
         
@@ -55,9 +55,12 @@ extension UIColor {
         var g: UInt32 = 0x0
         var b: UInt32 = 0x0
         
-        Scanner(string: rString).scanHexInt32(&r)
-        Scanner(string: gString).scanHexInt32(&g)
-        Scanner(string: bString).scanHexInt32(&b)
+//        Scanner(string: rString).scanHexInt32(&r)
+//        Scanner(string: gString).scanHexInt32(&g)
+//        Scanner(string: bString).scanHexInt32(&b)
+        Scanner.init(string: rString).scanHexInt32(&r)
+        Scanner.init(string: gString).scanHexInt32(&g)
+        Scanner.init(string: bString).scanHexInt32(&b)
         
         return UIColor(r: r, g: g, b: b)
     }

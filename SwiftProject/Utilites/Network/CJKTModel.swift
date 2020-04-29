@@ -72,3 +72,50 @@ struct RankingModel: HandyJSON {
     var rankingType: Int = 0
 }
 
+
+
+//gank.io
+
+
+struct GrilModel: HandyJSON {
+    var page: Int = 0
+    var page_count: Int = 0
+    var status: Int = 0
+    var total_counts: Int = 0
+    var data: [GrilListModel]?
+    
+}
+
+struct GrilListModel: HandyJSON {
+    var title: String?
+    var likeCounts: Int = 0
+    var desc: String?
+    var url: String?
+    
+}
+/**
+"data": [],
+"page": 1,
+"page_count": 7,
+"status": 100,
+"total_counts": 68
+*/
+/**
+ {
+   "stars" : 1,
+   "category" : "Girl",
+   "title" : "第68期",
+   "url" : "http:\/\/gank.io\/images\/4817628a6762410895f814079a6690a1",
+   "likeCounts" : 0,
+   "author" : "鸢媛",
+   "createdAt" : "2020-04-27 08:00:00",
+   "desc" : "相似的人适合玩闹\/互补的人才能终老。 ​​​​",
+   "_id" : "5e958faf808d6d2fe6b56ecb",
+   "views" : 52,
+   "type" : "Girl",
+   "publishedAt" : "2020-04-27 08:00:00",
+   "images" : [
+     "http:\/\/gank.io\/images\/4817628a6762410895f814079a6690a1"
+   ]
+ },
+ */

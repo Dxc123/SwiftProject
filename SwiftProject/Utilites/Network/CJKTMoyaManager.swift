@@ -12,6 +12,8 @@ import Moya
 import HandyJSON
 import MBProgressHUD
 
+
+
 //HUD插件
 let LoadingPlugin = NetworkActivityPlugin { (type, target) in
     guard let vc = topVC else { return }
@@ -44,6 +46,8 @@ let CJKTMoyaProvider = MoyaProvider<CJKTAPI>(requestClosure: timeoutClosure)
 let CJKTMoyaProvider2 = MoyaProvider<CJKTAPI>(requestClosure: timeoutClosure, plugins: [LoadingPlugin])
 
 let CJKTMoyaManager = MoyaProvider<CJKTAPI>(requestClosure: timeoutClosure, plugins: [LoadingPlugin,LoggerPlugin])
+
+let CJKTMoyaManager2 = MoyaProvider<CJKTAPI>(requestClosure: timeoutClosure, manager: defaultAlamofireManager(), plugins: [LoadingPlugin,LoggerPlugin])
 
 //#if DEBUG
 //
@@ -93,9 +97,35 @@ extension Response {
 private func JSONResponseDataFormatter(_ data: Data) -> Data {
     do {
         let dataAsJSON = try JSONSerialization.jsonObject(with: data)
+         //JSONSerialization.WritingOptions.prettyPrinted 是输出JSON时的格式更容易查看。
         let prettyData =  try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)
         return prettyData
     } catch {
         return data // fallback to original data if it can't be serialized.
     }
+}
+
+
+// MARK: - https免证书实现以及校验证书部分
+ public func defaultAlamofireManager() -> Manager {
+//    let configuration = URLSessionConfiguration.default
+//    configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
+//    //获取本地证书
+//    let path: String = Bundle.main.path(forResource: "证书名", ofType: "cer")!
+//    let certificateData = try? Data(contentsOf: URL(fileURLWithPath: path)) as CFData
+//    let certificate = SecCertificateCreateWithData(nil, certificateData!)
+//    let certificates :[SecCertificate] = [certificate!]
+//
+//    let policies: [String: ServerTrustPolicy] = [
+//        "域名" : .pinCertificates(certificates: certificates, validateCertificateChain: true, validateHost: true)
+//    ]
+//    let manager = Alamofire.SessionManager(configuration: configuration,serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies))
+//    return manager
+    
+    let manager: Manager = MoyaProvider<MultiTarget>.defaultAlamofireManager()
+    manager.delegate.sessionDidReceiveChallenge = {
+            session,challenge in
+            return    (URLSession.AuthChallengeDisposition.useCredential,URLCredential(trust:challenge.protectionSpace.serverTrust!))
+    }
+    return manager
 }

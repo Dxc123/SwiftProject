@@ -13,13 +13,17 @@ import Moya
 //创建一个API的枚举，枚举值是接口名， 并创建遵守TargetType协议的extention
 
 /// 定义基础域名
-let Moya_baseURL = "http://app.u17.com/v3/appV3_3/ios/phone"
-
-
+let u17_baseURL  = "http://app.u17.com/v3/appV3_3/ios/phone"
+let gank_baseURL = "https://gank.io/api/v2"
+//
+// page/1/count/10
 enum CJKTAPI {
-    case cateList//分类列表
+    case cateList//u17 分类列表
     case textAPi2(para1: String,para2: String)
     case textAPi3(dict: [String: Any])//传入参数字典
+//
+    case girl(page: Int,count: Int)//获取妹纸列表
+   
     
 }
 
@@ -28,10 +32,12 @@ extension CJKTAPI: TargetType{
     var baseURL: URL {
 //        return URL.init(string: "")
         switch self {
-        case .textAPi2:
-            return URL.init(string:"http://app.u17.com/v3/appV3_3/ios/phone")!
+        case .cateList:
+            return URL.init(string:u17_baseURL)!
+        case .girl:
+        return URL.init(string:gank_baseURL)!
         default:
-            return URL.init(string:(Moya_baseURL))!
+            return URL.init(string:(u17_baseURL))!
         }
     }
     
@@ -41,12 +47,16 @@ extension CJKTAPI: TargetType{
          switch self {
                 case .cateList:
                     return "sort/mobileCateList"
-                case .textAPi2(let para1, _):
-                    return "\(para1)/news/latest"
+                case .textAPi2(let para1, let para2):
+                    return "\(para1)/news/latest/(\(para2)"
                 case .textAPi3:
                     return "4/news/latest"
-    
-                }
+            
+                case .girl(page: let page, count: let count):
+//                    https://gank.io/api/v2/data/category/Girl/type/Girl/page/1/count/10
+                return "data/category/Girl/type/Girl/page/\(page)/count/\(count)"
+            
+            }
 
        
     }
@@ -54,9 +64,9 @@ extension CJKTAPI: TargetType{
     var method: Moya.Method {
          switch self {
                case .cateList:
-                   return .get
-               default:
                    return .post
+               default:
+                   return .get
                }
     }
     
@@ -74,6 +84,7 @@ extension CJKTAPI: TargetType{
                 
                case let .textAPi3(parametersDict):
                    return .requestParameters(parameters: parametersDict, encoding: URLEncoding.default)
+            
                default: break
             
                }

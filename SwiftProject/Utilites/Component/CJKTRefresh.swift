@@ -9,9 +9,7 @@
 import UIKit
 import MJRefresh
 
-//class CJKTRefresh: NSObject {
-//
-//}
+
 
 extension UIScrollView {
     var uHead: MJRefreshHeader {
@@ -25,7 +23,9 @@ extension UIScrollView {
     }
 }
 
-class URefreshHeader: MJRefreshGifHeader {
+//MRAK: Header
+//gif
+class CJKTRefreshHeader: MJRefreshGifHeader {
     override func prepare() {
         super.prepare()
         setImages([UIImage(named: "refresh_normal")!], for: .idle)
@@ -39,14 +39,21 @@ class URefreshHeader: MJRefreshGifHeader {
     }
 }
 
-class URefreshAutoHeader: MJRefreshHeader {}
 
-class URefreshFooter: MJRefreshBackNormalFooter {}
+//Normal :菊花
+class CJKTRefreshNormalHeader: MJRefreshNormalHeader{}
 
-class URefreshAutoFooter: MJRefreshAutoFooter {}
+class CJKTRefreshAutoHeader: MJRefreshHeader {}
+
+//MRAK: Footer
+
+//Normal:菊花
+class CJKTRefreshNormalFooter: MJRefreshBackNormalFooter {}
+
+class CJKTRefreshAutoFooter: MJRefreshAutoFooter {}
 
 
-class URefreshDiscoverFooter: MJRefreshBackGifFooter {
+class CJKTRefreshDiscoverFooter: MJRefreshBackGifFooter {
     
     override func prepare() {
         super.prepare()
@@ -57,7 +64,7 @@ class URefreshDiscoverFooter: MJRefreshBackGifFooter {
     }
 }
 
-class URefreshTipKissFooter: MJRefreshBackFooter {
+class CJKTRefreshTipKissFooter: MJRefreshBackFooter {
     
     lazy var tipLabel: UILabel = {
         let tl = UILabel()

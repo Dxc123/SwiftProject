@@ -19,6 +19,7 @@ class CJKTNavigationController: UINavigationController {
         guard let internalTarget = internalTargets.first?.value(forKey: "target") else { return }
         let action = Selector(("handleNavigationTransition:"))
 
+//
         let fullScreenGesture = UIPanGestureRecognizer(target: internalTarget, action: action)
         fullScreenGesture.delegate = self
         targetView.addGestureRecognizer(fullScreenGesture)
@@ -90,10 +91,12 @@ extension UINavigationController {
             navigationBar.barStyle = .black
             navigationBar.setBackgroundImage(UIImage(named: "nav_bg"), for: .default)
             navigationBar.shadowImage = UIImage()
+            
         case .clear:
             navigationBar.barStyle = .black
             navigationBar.setBackgroundImage(UIImage(), for: .default)
             navigationBar.shadowImage = UIImage()
+            
         case .white:
             navigationBar.barStyle = .default
             navigationBar.setBackgroundImage(UIColor.white.image(), for: .default)

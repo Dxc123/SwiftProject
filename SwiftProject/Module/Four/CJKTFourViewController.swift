@@ -12,11 +12,15 @@ class CJKTFourViewController: CJKTBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        navigationController?.barStyle(.clear)
+        navigationItem.title = "我的"
+        
     }
     
-
+    override func configNavigationBar() {
+            super.configNavigationBar()
+            navigationController?.barStyle(.clear)
+        }
     /*
     // MARK: - Navigation
 

@@ -7,9 +7,17 @@
 //
 
 import UIKit
-
+import SnapKit
+import SwiftyJSON
+import HandyJSON
+import Kingfisher
+import Then
 class CJKTBaseViewController: UIViewController {
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configNavigationBar()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,8 +31,26 @@ class CJKTBaseViewController: UIViewController {
          configUI()
     }
     
-     func configUI() {}
+    open func configUI() {}
 
+    
+   open func configNavigationBar() {
+        guard let navi = navigationController else { return }
+        if navi.visibleViewController == self {
+            navi.barStyle(.theme)
+            navi.disablePopGesture = false
+            navi.setNavigationBarHidden(false, animated: true)
+            if navi.viewControllers.count > 1 {
+                navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "nav_back_white"), style: .plain, target: self, action: #selector(pressBack))
+            }
+        }
+    }
+    
+    
+    @objc func pressBack() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

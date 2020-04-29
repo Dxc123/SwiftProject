@@ -7,11 +7,14 @@
 //
 
 import UIKit
-import SnapKit
+import PKHUD
+import JXPhotoBrowser
 import SwiftyJSON
 import HandyJSON
 class CJKTSecondViewController: CJKTBaseViewController{
-   
+   var page = 1
+   var count = 10
+   var grilListlArry = [GrilListModel?]()
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cw = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
@@ -25,55 +28,89 @@ class CJKTSecondViewController: CJKTBaseViewController{
         cw.register(cellType: CJKTSecondCollectionCell.self)
         cw.register(supplementaryViewType: CJKTSecondCollectionReusableView.self, ofKind: UICollectionView.elementKindSectionHeader)
         cw.register(supplementaryViewType: CJKTSecondCollectionReusableView.self, ofKind: UICollectionView.elementKindSectionFooter)
+        cw.uempty = CJKTEmptyView.init(tapClosure: {
+            self.loadData(moreData: false)
+        })
+        cw.uHead = CJKTRefreshNormalHeader.init(refreshingBlock: {
+            self.loadData(moreData: false)
+        })
+        cw.uFoot  = CJKTRefreshNormalFooter.init(refreshingBlock: {
+            self.loadData(moreData: true)
+        })
         return cw
         
     }()
-
+    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        loadData()
-    }
-    
-    override func configUI() {
+        navigationController?.barStyle(.theme)
+        navigationItem.title = "分类"
         view.addSubview(self.collectionView)
-           self.collectionView.snp.makeConstraints{
+       self.collectionView.snp.makeConstraints{
 //            $0.edges.equalTo(view.snp.edges)
-            $0.left.right.bottom.equalToSuperview()
-            $0.top.equalTo(view.snp.top).offset(kTabBarHeight)
+        $0.left.right.bottom.equalToSuperview()
+        $0.top.equalTo(view.snp.top).offset(0)
+        }
+        
+        loadData(moreData: false)
+        
+     }
+    
+    func loadData(moreData: Bool) -> Void{
+        if moreData == true {
+           CJKTLog("true")
+           self.page = self.page + 1
+        }else{
+            CJKTLog("false")
+           self.page = 1
+        }
+        
+            HUD.show(.labeledProgress(title: nil, subtitle: "加载中。。。"))
+            CJKTMoyaAPIProvider3.request(.girl(page: self.page, count: self.count)) { (result) in
+                HUD.hide()
+    
+                if case let .success(result) = result {
+                let data = try? result.mapJSON()
+                let json = JSON(data!)
+    
+                    
+                    let dataArr = JSONDeserializer<GrilListModel>.deserializeModelArrayFrom(json: json["data"].description)
+        
+                    if moreData == false {//未上拉加载
+                        self.grilListlArry.append(contentsOf: dataArr!)
+
+                        if dataArr!.count>0 {
+                            self.collectionView.uHead.endRefreshing()
+                            self.collectionView.uFoot.endRefreshing()
+                            self.collectionView.uFoot = CJKTRefreshNormalFooter.init(refreshingBlock: {
+                                self.loadData(moreData: true)
+                            })
+                        }
+                    }else{//上拉加载
+                        if dataArr!.count>0 {
+
+                            self.grilListlArry.append(contentsOf: dataArr!)
+                        }else {
+                             self.collectionView.uFoot.endRefreshing()
+                        }
+                    }
+                    
+                    self.collectionView.reloadData();//刷新
+                    self.collectionView.uHead.endRefreshing()
+                    self.collectionView.uFoot.endRefreshing()
+
+                }else{
+                    CJKTLog("Error = \(result.error?.errorDescription)")
+                    
+                    
+                }
+            }
+            
             
         }
-       }
-    private func loadData() {
-//        CJKTMoyaManager.request(CJKTAPI.cateList) { (result) in
-//
-//               }
-        
-//        CJKTMoyaManager.request(CJKTAPI.cateList, model: CateListModel.self) { (returnData) in
-//            CJKTLog("returnData = \(String(describing: returnData))")
-//        }
-        
-       
-        CJKTMoyaAPIProvider2.request(CJKTAPI.cateList) { (result) in
-             if case let .success(response) = result {
-                
-        //解析数据
-                let data = try? response.mapJSON()
-                let json = JSON(data!)
-//                CJKTLog("json = \(json)")
-                let  dic = json["data"]["returnData"]["rankingList"]
-                CJKTLog("dic = \(dic)")
-                
-                if let mappedObject = JSONDeserializer<CateListModel>.deserializeFrom(json: json.description) {
-//                        self.homevipData = mappedObject
-//                        self.focusImages = mappedObject.focusImages?.data
-//                        self.categoryList = mappedObject.categoryContents?.list
-                 }
-                }
-           
-        }
-    }
+
+    
 
     /*
     // MARK: - Navigation
@@ -90,7 +127,7 @@ class CJKTSecondViewController: CJKTBaseViewController{
 
 extension CJKTSecondViewController:UICollectionViewDelegateFlowLayout, UICollectionViewDelegate ,UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6;
+        return self.grilListlArry.count;
        }
        
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -98,17 +135,28 @@ extension CJKTSecondViewController:UICollectionViewDelegateFlowLayout, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CJKTSecondCollectionCell", for: indexPath) as!CJKTSecondCollectionCell
         
 //        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: CJKTSecondCollectionCell.self)
-        cell.backgroundColor = UIColor.red
+//        cell.backgroundColor = UIColor.red
+        cell.model = self.grilListlArry[indexPath.row]
         
         return cell
        }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        CJKTLog("点击\(indexPath.row)")
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CJKTSecondCollectionCell", for: indexPath) as!CJKTSecondCollectionCell
+        let model = self.grilListlArry[indexPath.row] as  GrilListModel?
+        
+        let vc = CJKTPhoneViewController()
+        vc.imgUrl = model?.url
+        vc.titleStr = model?.title
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
     // return: item的大小
        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
        {
           
-         return CGSize(width: (SCREEN_WIDTH - 20)/2, height: 80)
+         return CGSize(width: (SCREEN_WIDTH/2-10), height: 200)
            
        }
 
@@ -123,7 +171,7 @@ extension CJKTSecondViewController:UICollectionViewDelegateFlowLayout, UICollect
 
     //最小列间距
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat{
-        return 10
+        return 5
     }
     
     
@@ -131,11 +179,11 @@ extension CJKTSecondViewController:UICollectionViewDelegateFlowLayout, UICollect
       //返回header的大小
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
         {
-            return CGSize(width: SCREEN_WIDTH, height: 50)
+            return CGSize(width: SCREEN_WIDTH, height: 0)
             }
     //    返回Footer的大小
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-             return CGSize(width: SCREEN_WIDTH, height: 50)
+             return CGSize(width: SCREEN_WIDTH, height: 0)
         }
 
         func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
@@ -143,20 +191,29 @@ extension CJKTSecondViewController:UICollectionViewDelegateFlowLayout, UICollect
            
             
             if (kind as String) == UICollectionView.elementKindSectionHeader  {
-                //返回头部
+                //头部
 //                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath)
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: CJKTSecondCollectionReusableView.self)
                 header.backgroundColor = UIColor.yellow
+                header.moreActionClosure {[weak self] in
+                    CJKTLog("点击")
+                }
+//                header.selectIndexClosure { [weak self] (index) in
+//                     CJKTLog("点击选择")
+//                }
                 return header
             }else
             {
-                //返回底部
+                //底部
 //                let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer", for: indexPath)
                 let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: CJKTSecondCollectionReusableView.self)
                 footer.backgroundColor = UIColor.blue
                 return footer
             }
         }
+    
+    
+
 }
 
 

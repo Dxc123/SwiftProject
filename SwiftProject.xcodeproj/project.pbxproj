@@ -38,6 +38,9 @@
 		C047FA9E2443061700A8FFB5 /* CJKTRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = C047FA9D2443061700A8FFB5 /* CJKTRefresh.swift */; };
 		C047FAA02443071800A8FFB5 /* CJKTEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C047FA9F2443071800A8FFB5 /* CJKTEmptyView.swift */; };
 		C047FAA524431EF200A8FFB5 /* CJKTMoyaAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C047FAA424431EF200A8FFB5 /* CJKTMoyaAPIProvider.swift */; };
+		C067985B2459226200968729 /* CJKTPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067985A2459226200968729 /* CJKTPhoneViewController.swift */; };
+		C067985D24592EE400968729 /* AuthorizeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067985C24592EE400968729 /* AuthorizeUtils.swift */; };
+		C06B45EF24580385000E659C /* NotificationCenterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06B45EE24580385000E659C /* NotificationCenterExtensions.swift */; };
 		C07BBE372441509100920CA8 /* CJKTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BBE362441509100920CA8 /* CJKTAPI.swift */; };
 		C07BBE3B244150DE00920CA8 /* CJKTMoyaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BBE3A244150DE00920CA8 /* CJKTMoyaManager.swift */; };
 		C09447CA2440A9DA001E43D7 /* CJKTJsonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09447C92440A9DA001E43D7 /* CJKTJsonUtil.swift */; };
@@ -46,6 +49,14 @@
 		C09447D02440B4A3001E43D7 /* CJKTSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09447CF2440B4A3001E43D7 /* CJKTSecondViewController.swift */; };
 		C09447D22440B4AF001E43D7 /* CJKTThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09447D12440B4AF001E43D7 /* CJKTThirdViewController.swift */; };
 		C09447D42440B4BC001E43D7 /* CJKTFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09447D32440B4BC001E43D7 /* CJKTFourViewController.swift */; };
+		C09F138B245672AF0018D2BB /* UITxtFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F138A245672AF0018D2BB /* UITxtFieldExtensions.swift */; };
+		C09F138D245673140018D2BB /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F138C245673140018D2BB /* UITextViewExtensions.swift */; };
+		C09F138F245696BB0018D2BB /* CJKTHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F138E245696BB0018D2BB /* CJKTHomeTableViewCell.swift */; };
+		C09F13922456BB820018D2BB /* CJKTLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F13912456BB820018D2BB /* CJKTLoginViewController.swift */; };
+		C0B573072445488E00445EC7 /* SnapKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B573062445488E00445EC7 /* SnapKitExtension.swift */; };
+		C0B573092445497700445EC7 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B573082445497700445EC7 /* DateExtensions.swift */; };
+		C0B5730B24454BEB00445EC7 /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B5730A24454BEB00445EC7 /* NSAttributedStringExtensions.swift */; };
+		C0B5730D24454E9B00445EC7 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B5730C24454E9B00445EC7 /* UILabelExtensions.swift */; };
 		C0CE9BC72443F34C00DC39EC /* CJKTSecondCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE9BC62443F34C00DC39EC /* CJKTSecondCollectionCell.swift */; };
 		C0CE9BC92443F47D00DC39EC /* CJKTSecondCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE9BC82443F47D00DC39EC /* CJKTSecondCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
@@ -111,6 +122,9 @@
 		C047FA9D2443061700A8FFB5 /* CJKTRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTRefresh.swift; sourceTree = "<group>"; };
 		C047FA9F2443071800A8FFB5 /* CJKTEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTEmptyView.swift; sourceTree = "<group>"; };
 		C047FAA424431EF200A8FFB5 /* CJKTMoyaAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTMoyaAPIProvider.swift; sourceTree = "<group>"; };
+		C067985A2459226200968729 /* CJKTPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTPhoneViewController.swift; sourceTree = "<group>"; };
+		C067985C24592EE400968729 /* AuthorizeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizeUtils.swift; sourceTree = "<group>"; };
+		C06B45EE24580385000E659C /* NotificationCenterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtensions.swift; sourceTree = "<group>"; };
 		C07BBE362441509100920CA8 /* CJKTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTAPI.swift; sourceTree = "<group>"; };
 		C07BBE3A244150DE00920CA8 /* CJKTMoyaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTMoyaManager.swift; sourceTree = "<group>"; };
 		C09447C92440A9DA001E43D7 /* CJKTJsonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTJsonUtil.swift; sourceTree = "<group>"; };
@@ -119,6 +133,14 @@
 		C09447CF2440B4A3001E43D7 /* CJKTSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTSecondViewController.swift; sourceTree = "<group>"; };
 		C09447D12440B4AF001E43D7 /* CJKTThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTThirdViewController.swift; sourceTree = "<group>"; };
 		C09447D32440B4BC001E43D7 /* CJKTFourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTFourViewController.swift; sourceTree = "<group>"; };
+		C09F138A245672AF0018D2BB /* UITxtFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITxtFieldExtensions.swift; sourceTree = "<group>"; };
+		C09F138C245673140018D2BB /* UITextViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
+		C09F138E245696BB0018D2BB /* CJKTHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTHomeTableViewCell.swift; sourceTree = "<group>"; };
+		C09F13912456BB820018D2BB /* CJKTLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTLoginViewController.swift; sourceTree = "<group>"; };
+		C0B573062445488E00445EC7 /* SnapKitExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapKitExtension.swift; sourceTree = "<group>"; };
+		C0B573082445497700445EC7 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		C0B5730A24454BEB00445EC7 /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
+		C0B5730C24454E9B00445EC7 /* UILabelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtensions.swift; sourceTree = "<group>"; };
 		C0CE9BC62443F34C00DC39EC /* CJKTSecondCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTSecondCollectionCell.swift; sourceTree = "<group>"; };
 		C0CE9BC82443F47D00DC39EC /* CJKTSecondCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTSecondCollectionReusableView.swift; sourceTree = "<group>"; };
 		E7FFB2CE5874B5EDE7E34039 /* Pods-SwiftProject-SwiftProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftProject-SwiftProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-SwiftProject-SwiftProjectUITests/Pods-SwiftProject-SwiftProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -239,6 +261,7 @@
 		C047558824405D6100665E0C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				C09F13902456BB590018D2BB /* Login */,
 				C047558724405D2100665E0C /* Base */,
 				C047558C24405F7400665E0C /* First */,
 				C047558B24405F6A00665E0C /* Second */,
@@ -270,6 +293,7 @@
 				C09447CF2440B4A3001E43D7 /* CJKTSecondViewController.swift */,
 				C0CE9BC62443F34C00DC39EC /* CJKTSecondCollectionCell.swift */,
 				C0CE9BC82443F47D00DC39EC /* CJKTSecondCollectionReusableView.swift */,
+				C067985A2459226200968729 /* CJKTPhoneViewController.swift */,
 			);
 			path = Second;
 			sourceTree = "<group>";
@@ -278,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				C09447CD2440B491001E43D7 /* CJKTHomeViewController.swift */,
+				C09F138E245696BB0018D2BB /* CJKTHomeTableViewCell.swift */,
 			);
 			path = First;
 			sourceTree = "<group>";
@@ -310,13 +335,18 @@
 		C047FA912443016900A8FFB5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				C0475592244066AE00665E0C /* UIColorExtensions.swift */,
-				C0475594244066CA00665E0C /* UIViewExtensions.swift */,
-				C0475596244066E500665E0C /* UIImageEXtensions.swift */,
 				C04755982440670100665E0C /* StringExtensions.swift */,
-				C04755A4244067B200665E0C /* UIViewControllerExtensions.swift */,
 				C04755A6244067FA00665E0C /* UIButtonExtensions.swift */,
-				C09447C92440A9DA001E43D7 /* CJKTJsonUtil.swift */,
+				C0B5730C24454E9B00445EC7 /* UILabelExtensions.swift */,
+				C09F138A245672AF0018D2BB /* UITxtFieldExtensions.swift */,
+				C09F138C245673140018D2BB /* UITextViewExtensions.swift */,
+				C0475592244066AE00665E0C /* UIColorExtensions.swift */,
+				C0475596244066E500665E0C /* UIImageEXtensions.swift */,
+				C04755A4244067B200665E0C /* UIViewControllerExtensions.swift */,
+				C0475594244066CA00665E0C /* UIViewExtensions.swift */,
+				C0B573082445497700445EC7 /* DateExtensions.swift */,
+				C0B5730A24454BEB00445EC7 /* NSAttributedStringExtensions.swift */,
+				C06B45EE24580385000E659C /* NotificationCenterExtensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -324,9 +354,12 @@
 		C047FA922443020300A8FFB5 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				C067985C24592EE400968729 /* AuthorizeUtils.swift */,
 				C047559E2440674700665E0C /* DQProgressHUD.swift */,
 				C047FA9D2443061700A8FFB5 /* CJKTRefresh.swift */,
 				C047FA9F2443071800A8FFB5 /* CJKTEmptyView.swift */,
+				C09447C92440A9DA001E43D7 /* CJKTJsonUtil.swift */,
+				C0B573062445488E00445EC7 /* SnapKitExtension.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -362,6 +395,14 @@
 				C047FAA424431EF200A8FFB5 /* CJKTMoyaAPIProvider.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		C09F13902456BB590018D2BB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C09F13912456BB820018D2BB /* CJKTLoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		FF2CEE32AF2F26F5447141C2 /* Frameworks */ = {
@@ -620,24 +661,35 @@
 				C047FAA02443071800A8FFB5 /* CJKTEmptyView.swift in Sources */,
 				C04755A5244067B200665E0C /* UIViewControllerExtensions.swift in Sources */,
 				C047555C2440526C00665E0C /* ViewController.swift in Sources */,
+				C0B5730B24454BEB00445EC7 /* NSAttributedStringExtensions.swift in Sources */,
 				C047FA9A2443048300A8FFB5 /* CJKTBaseTableViewCell.swift in Sources */,
 				C09447CC2440AA4B001E43D7 /* CJKTBaseModel.swift in Sources */,
 				C04755AB2440688B00665E0C /* Tools.m in Sources */,
+				C0B573072445488E00445EC7 /* SnapKitExtension.swift in Sources */,
+				C067985B2459226200968729 /* CJKTPhoneViewController.swift in Sources */,
 				C047FAA524431EF200A8FFB5 /* CJKTMoyaAPIProvider.swift in Sources */,
 				C09447D02440B4A3001E43D7 /* CJKTSecondViewController.swift in Sources */,
 				C04755582440526C00665E0C /* AppDelegate.swift in Sources */,
+				C06B45EF24580385000E659C /* NotificationCenterExtensions.swift in Sources */,
+				C067985D24592EE400968729 /* AuthorizeUtils.swift in Sources */,
 				C0475591244064FC00665E0C /* GlobalConstants.swift in Sources */,
+				C09F138F245696BB0018D2BB /* CJKTHomeTableViewCell.swift in Sources */,
 				C047555A2440526C00665E0C /* SceneDelegate.swift in Sources */,
+				C0B5730D24454E9B00445EC7 /* UILabelExtensions.swift in Sources */,
 				C0CE9BC92443F47D00DC39EC /* CJKTSecondCollectionReusableView.swift in Sources */,
 				C0CE9BC72443F34C00DC39EC /* CJKTSecondCollectionCell.swift in Sources */,
 				C09447D22440B4AF001E43D7 /* CJKTThirdViewController.swift in Sources */,
 				C04755A7244067FA00665E0C /* UIButtonExtensions.swift in Sources */,
+				C09F138D245673140018D2BB /* UITextViewExtensions.swift in Sources */,
 				C04755B124406E4100665E0C /* CJKTNavigationController.swift in Sources */,
 				C04755AD24406E0600665E0C /* CJKTBaseViewController.swift in Sources */,
+				C09F13922456BB820018D2BB /* CJKTLoginViewController.swift in Sources */,
 				C047FA9E2443061700A8FFB5 /* CJKTRefresh.swift in Sources */,
+				C0B573092445497700445EC7 /* DateExtensions.swift in Sources */,
 				C07BBE3B244150DE00920CA8 /* CJKTMoyaManager.swift in Sources */,
 				C07BBE372441509100920CA8 /* CJKTAPI.swift in Sources */,
 				C09447D42440B4BC001E43D7 /* CJKTFourViewController.swift in Sources */,
+				C09F138B245672AF0018D2BB /* UITxtFieldExtensions.swift in Sources */,
 				C00A005724420B39004B5152 /* CJKTModel.swift in Sources */,
 				C047FA98244303C800A8FFB5 /* CJKTBaseCollectionViewCell.swift in Sources */,
 				C047FA96244302ED00A8FFB5 /* CJKTBaseTableViewView.swift in Sources */,

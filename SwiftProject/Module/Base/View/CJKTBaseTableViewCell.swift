@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import Foundation
+import Reusable
+import SnapKit
+import Kingfisher
+import SwiftyJSON
+import HandyJSON
+import PKHUD
 
-class CJKTBaseTableViewCell: UITableViewCell {
+import Then
+class CJKTBaseTableViewCell: UITableViewCell ,Reusable{
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
        super.init(style: style, reuseIdentifier: reuseIdentifier)

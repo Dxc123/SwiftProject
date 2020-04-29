@@ -12,7 +12,8 @@ class CJKTThirdViewController: CJKTBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.barStyle(.theme)
+        navigationItem.title = "书架"
         // Do any additional setup after loading the view.
     }
     

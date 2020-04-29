@@ -126,6 +126,7 @@ var topVC: UIViewController? {
     }
     return resultVC
 }
+
 private  func _topVC(_ vc: UIViewController?) -> UIViewController? {
     if vc is UINavigationController {
         return _topVC((vc as? UINavigationController)?.topViewController)
