@@ -33,9 +33,25 @@ target 'SwiftProject' do
     pod 'JXPhotoBrowser'#图片与视频浏览器
 #    pod 'KKPhotoBrowser'#Swift轻量级的图片浏览器
 
+    #Swift extensions （最强扩展库）
+    pod 'SwifterSwift'
+    # Date
+    pod 'SwiftDate'
+    #封装NSAttributedString
+    pod 'BonMot'
+    pod 'TextAttributes'#链式结构
+    pod 'SwiftyAttributes'#链式结构
     
+    pod 'DropDown'#下拉列表
     
-
+   # pod 'swiftScan'#二维码 各种码识别，生成，界面效果
+    
+   # pod 'DKImagePickerController' # 照片选取
+    
+    pod 'Permission'#统一管理iOS系统的许可，比如相机、相片、定位等。
+    #动画库
+    pod 'EasyAnimation'# 主要UIView.animate动画
+  
 
   target 'SwiftProjectTests' do
     inherit! :search_paths

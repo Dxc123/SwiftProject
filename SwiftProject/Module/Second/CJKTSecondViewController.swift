@@ -144,12 +144,16 @@ extension CJKTSecondViewController:UICollectionViewDelegateFlowLayout, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         CJKTLog("点击\(indexPath.row)")
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CJKTSecondCollectionCell", for: indexPath) as!CJKTSecondCollectionCell
-        let model = self.grilListlArry[indexPath.row] as  GrilListModel?
-        
-        let vc = CJKTPhoneViewController()
-        vc.imgUrl = model?.url
-        vc.titleStr = model?.title
-        navigationController?.pushViewController(vc, animated: true)
+//        let model = self.grilListlArry[indexPath.row] as  GrilListModel?
+//
+//        let vc = CJKTPhoneViewController()
+//        vc.imgUrl = model?.url
+//        vc.titleStr = model?.title
+//        navigationController?.pushViewController(vc, animated: true)
+         let images = ["image1","image2","image3"]
+        //进入图片全屏展示
+        let previewVC = CJKTPhotoBrowseViewController.init(images: images, index: 0)
+        self.navigationController?.pushViewController(previewVC, animated: true)
         
     }
     // return: item的大小

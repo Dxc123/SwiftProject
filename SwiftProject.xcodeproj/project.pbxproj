@@ -57,6 +57,8 @@
 		C0B573092445497700445EC7 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B573082445497700445EC7 /* DateExtensions.swift */; };
 		C0B5730B24454BEB00445EC7 /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B5730A24454BEB00445EC7 /* NSAttributedStringExtensions.swift */; };
 		C0B5730D24454E9B00445EC7 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B5730C24454E9B00445EC7 /* UILabelExtensions.swift */; };
+		C0C737A2245B0F8600C0E7F1 /* CJKTPhotoBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C737A1245B0F8600C0E7F1 /* CJKTPhotoBrowseViewController.swift */; };
+		C0C737A4245B0FE100C0E7F1 /* CJKTPhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C737A3245B0FE100C0E7F1 /* CJKTPhotoBrowserCell.swift */; };
 		C0CE9BC72443F34C00DC39EC /* CJKTSecondCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE9BC62443F34C00DC39EC /* CJKTSecondCollectionCell.swift */; };
 		C0CE9BC92443F47D00DC39EC /* CJKTSecondCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE9BC82443F47D00DC39EC /* CJKTSecondCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
@@ -141,6 +143,8 @@
 		C0B573082445497700445EC7 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		C0B5730A24454BEB00445EC7 /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		C0B5730C24454E9B00445EC7 /* UILabelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtensions.swift; sourceTree = "<group>"; };
+		C0C737A1245B0F8600C0E7F1 /* CJKTPhotoBrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTPhotoBrowseViewController.swift; sourceTree = "<group>"; };
+		C0C737A3245B0FE100C0E7F1 /* CJKTPhotoBrowserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTPhotoBrowserCell.swift; sourceTree = "<group>"; };
 		C0CE9BC62443F34C00DC39EC /* CJKTSecondCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTSecondCollectionCell.swift; sourceTree = "<group>"; };
 		C0CE9BC82443F47D00DC39EC /* CJKTSecondCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJKTSecondCollectionReusableView.swift; sourceTree = "<group>"; };
 		E7FFB2CE5874B5EDE7E34039 /* Pods-SwiftProject-SwiftProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftProject-SwiftProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-SwiftProject-SwiftProjectUITests/Pods-SwiftProject-SwiftProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -360,6 +364,7 @@
 				C047FA9F2443071800A8FFB5 /* CJKTEmptyView.swift */,
 				C09447C92440A9DA001E43D7 /* CJKTJsonUtil.swift */,
 				C0B573062445488E00445EC7 /* SnapKitExtension.swift */,
+				C0C737A0245B0F5F00C0E7F1 /* PhotoBrowse */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -403,6 +408,15 @@
 				C09F13912456BB820018D2BB /* CJKTLoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		C0C737A0245B0F5F00C0E7F1 /* PhotoBrowse */ = {
+			isa = PBXGroup;
+			children = (
+				C0C737A1245B0F8600C0E7F1 /* CJKTPhotoBrowseViewController.swift */,
+				C0C737A3245B0FE100C0E7F1 /* CJKTPhotoBrowserCell.swift */,
+			);
+			path = PhotoBrowse;
 			sourceTree = "<group>";
 		};
 		FF2CEE32AF2F26F5447141C2 /* Frameworks */ = {
@@ -661,11 +675,13 @@
 				C047FAA02443071800A8FFB5 /* CJKTEmptyView.swift in Sources */,
 				C04755A5244067B200665E0C /* UIViewControllerExtensions.swift in Sources */,
 				C047555C2440526C00665E0C /* ViewController.swift in Sources */,
+				C0C737A2245B0F8600C0E7F1 /* CJKTPhotoBrowseViewController.swift in Sources */,
 				C0B5730B24454BEB00445EC7 /* NSAttributedStringExtensions.swift in Sources */,
 				C047FA9A2443048300A8FFB5 /* CJKTBaseTableViewCell.swift in Sources */,
 				C09447CC2440AA4B001E43D7 /* CJKTBaseModel.swift in Sources */,
 				C04755AB2440688B00665E0C /* Tools.m in Sources */,
 				C0B573072445488E00445EC7 /* SnapKitExtension.swift in Sources */,
+				C0C737A4245B0FE100C0E7F1 /* CJKTPhotoBrowserCell.swift in Sources */,
 				C067985B2459226200968729 /* CJKTPhoneViewController.swift in Sources */,
 				C047FAA524431EF200A8FFB5 /* CJKTMoyaAPIProvider.swift in Sources */,
 				C09447D02440B4A3001E43D7 /* CJKTSecondViewController.swift in Sources */,

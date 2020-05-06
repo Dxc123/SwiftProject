@@ -3,6 +3,9 @@ PODS:
   - Alamofire-SwiftyJSON (3.0.0):
     - Alamofire (~> 4.5)
     - SwiftyJSON (~> 4.0.0)
+  - BonMot (5.5.1)
+  - DropDown (2.3.13)
+  - EasyAnimation (2.2.1)
   - EmptyDataSet-Swift (5.0.0)
   - HandyJSON (5.0.1)
   - JXPhotoBrowser (3.0.9)
@@ -17,6 +20,9 @@ PODS:
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
   - ParallaxHeader (3.0.0)
+  - Permission (3.1.2):
+    - Permission/Core (= 3.1.2)
+  - Permission/Core (3.1.2)
   - PKHUD (5.3.0)
   - ReachabilitySwift (5.0.0)
   - Result (4.1.0)
@@ -27,12 +33,39 @@ PODS:
   - Reusable/View (4.1.1)
   - SnapKit (5.0.1)
   - SVProgressHUD (2.2.5)
+  - SwiftDate (6.1.0)
+  - SwifterSwift (5.1.0):
+    - SwifterSwift/AppKit (= 5.1.0)
+    - SwifterSwift/CoreGraphics (= 5.1.0)
+    - SwifterSwift/CoreLocation (= 5.1.0)
+    - SwifterSwift/Dispatch (= 5.1.0)
+    - SwifterSwift/Foundation (= 5.1.0)
+    - SwifterSwift/MapKit (= 5.1.0)
+    - SwifterSwift/SceneKit (= 5.1.0)
+    - SwifterSwift/SpriteKit (= 5.1.0)
+    - SwifterSwift/SwiftStdlib (= 5.1.0)
+    - SwifterSwift/UIKit (= 5.1.0)
+  - SwifterSwift/AppKit (5.1.0)
+  - SwifterSwift/CoreGraphics (5.1.0)
+  - SwifterSwift/CoreLocation (5.1.0)
+  - SwifterSwift/Dispatch (5.1.0)
+  - SwifterSwift/Foundation (5.1.0)
+  - SwifterSwift/MapKit (5.1.0)
+  - SwifterSwift/SceneKit (5.1.0)
+  - SwifterSwift/SpriteKit (5.1.0)
+  - SwifterSwift/SwiftStdlib (5.1.0)
+  - SwifterSwift/UIKit (5.1.0)
+  - SwiftyAttributes (5.1.1)
   - SwiftyJSON (4.0.0)
+  - TextAttributes (2.0.2)
   - Then (2.6.0)
 
 DEPENDENCIES:
   - Alamofire
   - Alamofire-SwiftyJSON
+  - BonMot
+  - DropDown
+  - EasyAnimation
   - EmptyDataSet-Swift
   - HandyJSON
   - JXPhotoBrowser
@@ -41,18 +74,26 @@ DEPENDENCIES:
   - MJRefresh
   - Moya
   - ParallaxHeader (~> 3.0.0)
+  - Permission
   - PKHUD
   - ReachabilitySwift
   - Reusable
   - SnapKit
   - SVProgressHUD
+  - SwiftDate
+  - SwifterSwift
+  - SwiftyAttributes
   - SwiftyJSON
+  - TextAttributes
   - Then
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Alamofire-SwiftyJSON
+    - BonMot
+    - DropDown
+    - EasyAnimation
     - EmptyDataSet-Swift
     - HandyJSON
     - JXPhotoBrowser
@@ -61,18 +102,26 @@ SPEC REPOS:
     - MJRefresh
     - Moya
     - ParallaxHeader
+    - Permission
     - PKHUD
     - ReachabilitySwift
     - Result
     - Reusable
     - SnapKit
     - SVProgressHUD
+    - SwiftDate
+    - SwifterSwift
+    - SwiftyAttributes
     - SwiftyJSON
+    - TextAttributes
     - Then
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Alamofire-SwiftyJSON: 2b3649d57dc7bb2880fb8b86f8bb969397666916
+  BonMot: 0d179476725af81f622a6d9f660f43048070016a
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  EasyAnimation: 226d133d23ef0ef99ddfb8928ff2a9a4a77d1cfd
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
   JXPhotoBrowser: b22932bfd53492848a63da85a568bf959548fefc
@@ -81,15 +130,20 @@ SPEC CHECKSUMS:
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ParallaxHeader: a343f55eb38f52a89c5820a77e14cf975b84e6aa
+  Permission: 4821359fb4d4367fb59aa16df38fbba5722ac842
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
+  SwifterSwift: a9e8e144832638c2850b43da5feaf9598c6ad65b
+  SwiftyAttributes: e3e13891ddac3c62b3d7798d5c3969cea88e62bb
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  TextAttributes: 89905fb52c36de587010f335bd4071463d9c6d9b
   Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
 
-PODFILE CHECKSUM: befdcd970a71510675d90c19555eda8abeb45fdc
+PODFILE CHECKSUM: ba9da092c36d5a9021b28333f026afc634be4c7e
 
 COCOAPODS: 1.9.1

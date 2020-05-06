@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 class CJKTPhoneViewController: CJKTBaseViewController {
     var imgUrl: String!
     var titleStr: String!
@@ -28,6 +29,8 @@ class CJKTPhoneViewController: CJKTBaseViewController {
         iconImgV.kf.setImage(with: URL(string: url),
                                         placeholder: UIImage.init(named: "normal_placeholder_h"), options:[.transition(.fade(0.2))])
         
+        
+//
         guard let str = titleStr else {return}
         navigationController?.navigationItem.title = str
         CJKTLog("titleStr = \(titleStr.debugDescription)")
@@ -50,6 +53,7 @@ class CJKTPhoneViewController: CJKTBaseViewController {
 //               捏合放大 旋转捏合取消浏览
                let rotate = UIRotationGestureRecognizer(target: self, action: #selector(interactionGesture(recognizer:)))
                view.addGestureRecognizer(rotate)
+        
 //               长按保存到相册
                let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGesture(recognizer:)))
                view.addGestureRecognizer(longPress)
