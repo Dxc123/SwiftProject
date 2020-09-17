@@ -34,7 +34,7 @@ class CJKTHomeTableViewCell: CJKTBaseTableViewCell {
 //        sn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
 //        sn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
 //         sn.layer.cornerRadius = 15
-        sn.addTarget(self, action:#selector(searchAction), for: .touchUpInside)
+        sn.addTarget(self, action:#selector(searchAction(_:)), for: .touchUpInside)
         return sn
     }()
     override func configUI() {
@@ -54,10 +54,10 @@ class CJKTHomeTableViewCell: CJKTBaseTableViewCell {
     }
 
     
-    @objc func searchAction(){
+    @objc func searchAction(_ sender: UIButton){
         
     }
-    
+    //赋值
     var model: GrilListModel? {
         didSet {
             guard let model = model else { return }

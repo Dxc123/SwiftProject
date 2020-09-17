@@ -1,5 +1,5 @@
 //
-//  CJKTBaseTableViewView.swift
+//  CJKTTableViewHeaderFooterView.swift
 //  SwiftProject
 //
 //  Created by daixingchuang on 2020/4/12.
@@ -15,7 +15,7 @@ import HandyJSON
 import PKHUD
 
 import Then
-class CJKTBaseTableViewView: UITableViewHeaderFooterView, Reusable {
+class CJKTTableViewHeaderFooterView: UITableViewHeaderFooterView, Reusable {
     
     override init(reuseIdentifier: String?) {
            super.init(reuseIdentifier: reuseIdentifier)

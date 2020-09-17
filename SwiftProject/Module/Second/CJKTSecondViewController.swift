@@ -199,12 +199,7 @@ extension CJKTSecondViewController:UICollectionViewDelegateFlowLayout, UICollect
 //                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath)
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: CJKTSecondCollectionReusableView.self)
                 header.backgroundColor = UIColor.yellow
-                header.moreActionClosure {[weak self] in
-                    CJKTLog("点击")
-                }
-//                header.selectIndexClosure { [weak self] (index) in
-//                     CJKTLog("点击选择")
-//                }
+//                header.selectIndexClosure
                 return header
             }else
             {

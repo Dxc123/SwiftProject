@@ -4,4 +4,5 @@
 
 #import "MBProgressHUD.h"
 #import "MJRefresh.h"
-
+//MD5加密
+#import <CommonCrypto/CommonDigest.h>

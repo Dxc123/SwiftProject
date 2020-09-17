@@ -11,28 +11,31 @@ target 'SwiftProject' do
     pod 'Alamofire-SwiftyJSON' #Alamofire扩展
     pod 'Moya'
     pod 'ReachabilitySwift' #检查网络
-    
-    pod 'HandyJSON’#json 转model
-    pod 'SwiftyJSON'#json 转model
-    #pod 'ObjectMapper'#数据模型转换
-    
+    #JSON数据模型转换
+    pod 'HandyJSON’
+    pod 'SwiftyJSON'
+    #pod 'ObjectMapper'
+    pod 'KakaJSON'
     pod 'SnapKit'#代码布局
     pod 'Kingfisher'#网络图片缓存库
-    
     pod 'PKHUD' #swift版Hud
     pod 'MBProgressHUD'
     pod 'SVProgressHUD'
     pod 'MJRefresh'
-    
-    pod 'Reusable'#重用视图(UITableViewCells, UICollectionViewCells等）
     pod 'Then'#swift初始化库
+    pod 'Toast-Swift'
+#UI组件库
+    pod 'ESTabBarController-swift' # 自定义tabbar样式
+    pod 'Reusable'#重用视图(UITableViewCells, UICollectionViewCells等）
     #pod 'IQKeyboardManagerSwift'
     pod 'EmptyDataSet-Swift'
-    
     pod 'ParallaxHeader', '~> 3.0.0'#添加视差头到UIScrollView/UITableView
     pod 'JXPhotoBrowser'#图片与视频浏览器
 #    pod 'KKPhotoBrowser'#Swift轻量级的图片浏览器
-
+    pod 'FSPagerView' # banner滚动图片
+#    pod 'DNSPageView' # 分页
+#    pod 'PageMenu'# 分页
+#扩展库
     #Swift extensions （最强扩展库）
     pod 'SwifterSwift'
     # Date
@@ -41,17 +44,12 @@ target 'SwiftProject' do
     pod 'BonMot'
     pod 'TextAttributes'#链式结构
     pod 'SwiftyAttributes'#链式结构
-    
     pod 'DropDown'#下拉列表
-    
    # pod 'swiftScan'#二维码 各种码识别，生成，界面效果
-    
    # pod 'DKImagePickerController' # 照片选取
-    
     pod 'Permission'#统一管理iOS系统的许可，比如相机、相片、定位等。
     #动画库
     pod 'EasyAnimation'# 主要UIView.animate动画
-  
 
   target 'SwiftProjectTests' do
     inherit! :search_paths

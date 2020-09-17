@@ -33,7 +33,6 @@ extension UIScrollView {
 class CJKTEmptyView: EmptyDataSetSource, EmptyDataSetDelegate {
     
     var image: UIImage?
-    
     var allowShow: Bool = false
     var verticalOffset: CGFloat = 0
     

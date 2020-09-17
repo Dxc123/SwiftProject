@@ -7,41 +7,35 @@
 //
 
 import UIKit
+// 声明Block
+typealias moreActionClosure = ()->Void
+typealias selectIndexClosure = (_ index: Int) -> Void
 
-typealias MoreActionClosure = ()->Void
-typealias SelectIndexClosure = (_ index: Int) -> Void
-protocol CJKTSecondCollectionReusableViewDelegate: class {
-    func comicCHead(_ head: CJKTSecondCollectionReusableView, moreAction button: UIButton)
+// delegate
+protocol CJKTSecondCollectionReusableViewDelegate: NSObjectProtocol {
+    func didselectHead(_ head: CJKTSecondCollectionReusableView,_ index: Int)
 }
 
 class CJKTSecondCollectionReusableView: CJKTBaseCollectionReusableView {
-//    delegate
+
     weak var delegate: CJKTSecondCollectionReusableViewDelegate?
-//closure
-    var moreActionClosure: MoreActionClosure?
-    var selectIndexClosure: SelectIndexClosure?
+    var selectIndexClosure: selectIndexClosure?
     
         lazy var moreButton: UIButton = {
                let mn = UIButton(type: .system)
                mn.setTitle("•••", for: .normal)
                mn.setTitleColor(UIColor.lightGray, for: .normal)
                mn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-               mn.addTarget(self, action: #selector(moreAction), for: .touchUpInside)
+            mn.addTarget(self, action: #selector(moreAction(_:)), for: .touchUpInside)
                return mn
            }()
     
-    @objc func moreAction(button: UIButton) {
-        delegate?.comicCHead(self, moreAction: button)
+    @objc func moreAction(_ button: UIButton) {
+        delegate?.didselectHead(self, button.tag)
         
-        guard let closure = moreActionClosure else { return }
-        closure()
-        guard let closure2 = selectIndexClosure else { return }
-        closure2(button.tag)
+        selectIndexClosure!(button.tag)
     }
     
-    func moreActionClosure(_ closure: MoreActionClosure?) {
-        moreActionClosure = closure
-    }
     
     
     override func configUI() {

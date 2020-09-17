@@ -52,19 +52,26 @@ class CJKTHomeViewController: CJKTBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints {
-            $0.edges.equalTo(view.cjkt_snp.edges).priority(.low)
-            $0.top.equalToSuperview()
-        }
+//        view.addSubview(tableView)
+//        tableView.snp.makeConstraints {
+//            $0.edges.equalTo(view.cjkt_snp.edges).priority(.low)
+//            $0.top.equalToSuperview()
+//        }
 //        tableView.parallaxHeader.view = head
 //        tableView.parallaxHeader.height = 200
 //        tableView.parallaxHeader.minimumHeight = 10//CGFloat(kNavBarHeight)
 //        tableView.parallaxHeader.mode = .fill
+        
+//        loadData(moreData: false)
+        
+        CJKTAlamofireManager.sharInstance.requestDatas(.get, urlString: "https://gank.io/api/v2/data/category/Girl/type/Girl/page/1/count/10", paramaters: nil) { (response) in
+            let jsonDate = JSON.init(response)
+            print("jsonDate = \(jsonDate)")
+            
+        }
+        
     
-       
-       
-        loadData(moreData: false)
+        
     }
     
     func loadData(moreData: Bool) -> Void{
@@ -89,8 +96,8 @@ class CJKTHomeViewController: CJKTBaseViewController {
 //            self.tableView.uHead.endRefreshing()
             
             if case let .success(result) = result {
-            let data = try? result.mapJSON()
-            let json = JSON(data!)
+            let data = try? result.mapJSON()// Moya
+            let json = JSON(data!)// SwiftyJSON
 //              CJKTLog("json = \(json)")
 //                if let grilModel = JSONDeserializer<GrilModel>.deserializeFrom(json: json.description){
 //
@@ -102,7 +109,7 @@ class CJKTHomeViewController: CJKTBaseViewController {
 //                CJKTLog("grilModelArry.count = \(grilListModel.count)")
 //                  self.grilListlArry = grilListModel
 //                }
-                
+                //HandyJSON转模型
                 let dataArr = JSONDeserializer<GrilListModel>.deserializeModelArrayFrom(json: json["data"].description)
     
                 if moreData == false {//未上拉加载

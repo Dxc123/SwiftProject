@@ -9,7 +9,7 @@
 import UIKit
 
 class CJKTTabBarController: UITabBarController {
-
+    var indexFlag = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,12 +39,12 @@ class CJKTTabBarController: UITabBarController {
                                title: "我的",
                                image: UIImage(named: "tab_mine"),
                                selectedImage: UIImage(named: "tab_mine_S"))
-        let loginVC = CJKTLoginViewController()
-        addChildViewController(loginVC,
-                               title: "登录",
-                               image: UIImage(named: "tab_mine"),
-                               selectedImage: UIImage(named: "tab_mine_S"))
-        
+//        let loginVC = CJKTLoginViewController()
+//        addChildViewController(loginVC,
+//                               title: "登录",
+//                               image: UIImage(named: "tab_mine"),
+//                               selectedImage: UIImage(named: "tab_mine_S"))
+//        
         
     }
     
@@ -62,7 +62,7 @@ class CJKTTabBarController: UITabBarController {
            addChild(CJKTNavigationController(rootViewController: childController))
        }
        
-    
+   
     
     /*
     // MARK: - Navigation
@@ -77,8 +77,40 @@ class CJKTTabBarController: UITabBarController {
 }
 
 extension CJKTTabBarController {
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         guard let select = selectedViewController else { return .lightContent }
         return select.preferredStatusBarStyle
     }
+    
+    
+     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+            if let index = tabBar.items?.firstIndex(of: item) {
+                if indexFlag != index {
+                    animatonwithIndex(index: index)
+                }
+            }
+        }
+    
+        private func animatonwithIndex(index: Int){
+            var arrViews = [UIView]()
+    //        遍历tabbar子视图拿到可点击的item放入数组
+            for tabBarButton in tabBar.subviews {
+                if tabBarButton.isKind(of: NSClassFromString("UITabBarButton")!) {
+                    arrViews.append(tabBarButton)
+                }
+            }
+            
+            // 缩放动画
+            let animation = CABasicAnimation.init(keyPath: "transform.scale")
+    //        动画函数
+            animation.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.easeInEaseOut)
+            animation.duration = 0.1
+            animation.repeatCount = 1
+            animation.autoreverses = true//执行完复位
+            animation.fromValue = NSNumber.init(value: 0.7)
+            animation.toValue = NSNumber.init(value: 1.1)
+            arrViews[index].layer.add(animation, forKey: nil)
+            indexFlag = index
+        }
 }

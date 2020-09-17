@@ -9,7 +9,6 @@
 import Foundation
 import SnapKit
 
-
 //MARK: SnapKit
 extension ConstraintView {
     /**解决iphoneX以后的底部和顶部安全距离*/
@@ -21,3 +20,8 @@ extension ConstraintView {
         }
     }
 }
+
+/**
+ 
+ make.edges.equalTo(self.view.cjkt_snp.edges)
+ */

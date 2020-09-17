@@ -1,5 +1,5 @@
 //
-//  AuthorizeUtils.swift
+//  CJKTAuthorizeUtils.swift
 //  MikewuSwift
 //
 //  Created by Dxc_iOS on 2018/2/2.
@@ -14,7 +14,7 @@ import AssetsLibrary
 
 
 
-class AuthorizeUtils: NSObject {
+class CJKTAuthorizeUtils: NSObject {
     
     //MARK: ----获取相册权限
     public func authorizePhotoWith(comletion:@escaping (Bool)->Void )

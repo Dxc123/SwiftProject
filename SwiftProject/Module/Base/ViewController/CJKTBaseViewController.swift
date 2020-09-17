@@ -12,6 +12,7 @@ import SwiftyJSON
 import HandyJSON
 import Kingfisher
 import Then
+import Reusable
 class CJKTBaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

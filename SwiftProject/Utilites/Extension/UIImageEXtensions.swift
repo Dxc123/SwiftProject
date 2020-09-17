@@ -13,7 +13,6 @@ extension UIImage{
 // MARK: -图片处理操作
    
    /// 裁切圆角图片
-   ///
    /// - Parameter radius: 裁切半径
    /// - Returns: 裁切后的图片
    func clicpCircle() -> UIImage? {
@@ -38,4 +37,21 @@ extension UIImage{
    }
    
    
+}
+
+
+extension UIImage {
+    
+    ///根据颜色创建图片
+    public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        color.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        guard let cgImage = image?.cgImage else { return nil }
+        self.init(cgImage: cgImage)
+    }
 }

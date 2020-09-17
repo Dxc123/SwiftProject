@@ -19,19 +19,34 @@ import UIKit
 let SCREEN_HEIGHT = UIScreen.main.bounds.height
 /// 屏幕宽度
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width;
-///// 导航栏高度
-//let kNavBarHeight = 44.0;
-///// 状态栏高度
-//let kStatusBarHeight = 20.0;
-///// Tab栏高度
-//let kTabBarHeight = 49.0;
+
+
+
+//更简洁的keyWindow
+let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+//UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+//UIApplication.shared.windows.first { $0.isKeyWindow }
+
+//向后兼容的keyWindow
+extension UIWindow {
+    static var keyWindow: UIWindow? {
+        if #available(iOS 13, *) {
+            return UIApplication.shared.windows.first { $0.isKeyWindow }
+        } else {
+            return UIApplication.shared.keyWindow
+        }
+    }
+}
+//推荐使用这个keyWindow
+let kkeyWindow = UIWindow.keyWindow
+
 
 //适配全面屏iPhone X系列
 
 //底部的安全距离
 let kBottomSafeAreaHeight =  UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0
 //顶部的安全距离
-let topSafeAreaHeight = (kBottomSafeAreaHeight == 0 ? 0 : 24)
+let ktopSafeAreaHeight = (kBottomSafeAreaHeight == 0 ? 0 : 24)
 //状态栏高度
 let kStatusBarHeight = (kBottomSafeAreaHeight == 0 ? 20 : 44)
 //导航栏高度
@@ -47,7 +62,7 @@ let kScaleH =  UIScreen.main.bounds.size.height/667
 
 
 // MARK: - 颜色
-func RGB(r:CGFloat,_ g:CGFloat,_ b:CGFloat) -> UIColor
+func RGB(_ r:CGFloat,_ g:CGFloat,_ b:CGFloat) -> UIColor
 {
     return UIColor(red: (r)/255.0, green: (g)/255.0, blue: (b)/255.0, alpha: 1.0)
 }
@@ -63,11 +78,28 @@ func randomColor() -> UIColor {
 
 
 
-
 // MARK: - 根据图片名称获取图片
 let IMAGE: (String) -> UIImage? = {imageName in
     return UIImage(named: imageName);
 }
+
+// MARK: - font 字号
+func customFont(font :CGFloat) -> UIFont{
+//    刘海屏
+    guard SCREEN_HEIGHT <= 736 else {
+        return UIFont.systemFont(ofSize: font)
+    }
+    //    5.5
+    guard SCREEN_HEIGHT == 736 else {
+        return UIFont.systemFont(ofSize: font-2)
+    }
+    //    4.7
+    guard SCREEN_HEIGHT >= 736 else {
+        return UIFont.systemFont(ofSize: font-4)
+    }
+     return UIFont.systemFont(ofSize: font)
+}
+
 
 
 // MARK: - fram
@@ -120,7 +152,7 @@ var topVC: UIViewController? {
     var resultVC: UIViewController?
     
 //    resultVC = _topVC(UIApplication.shared.keyWindow?.rootViewController)
-     resultVC = _topVC(UIApplication.shared.delegate?.window??.rootViewController)
+    resultVC = _topVC(kkeyWindow!.rootViewController)
     while resultVC?.presentedViewController != nil {
         resultVC = _topVC(resultVC?.presentedViewController)
     }
@@ -138,3 +170,133 @@ private  func _topVC(_ vc: UIViewController?) -> UIViewController? {
 }
 
 
+extension UIButton {
+
+    //MARK: -定义button 内Image相对label的位置
+    enum ButtonImagePosition {
+            case top          //图片在上，文字在下，垂直居中对齐
+            case bottom       //图片在下，文字在上，垂直居中对齐
+            case left         //图片在左，文字在右，水平居中对齐
+            case right        //图片在右，文字在左，水平居中对齐
+    }
+    /// - Description 设置Button图片的位置
+    /// - Parameters:
+    ///   - style: 图片位置
+    ///   - spacing: 按钮图片与文字之间的间隔
+    func imagePosition(style: ButtonImagePosition, spacing: CGFloat) {
+        //得到imageView和titleLabel的宽高
+        let imageWidth = self.imageView?.frame.size.width
+        let imageHeight = self.imageView?.frame.size.height
+        
+        var labelWidth: CGFloat! = 0.0
+        var labelHeight: CGFloat! = 0.0
+        
+        labelWidth = self.titleLabel?.intrinsicContentSize.width
+        labelHeight = self.titleLabel?.intrinsicContentSize.height
+        
+        //初始化imageEdgeInsets和labelEdgeInsets
+        var imageEdgeInsets = UIEdgeInsets.zero
+        var labelEdgeInsets = UIEdgeInsets.zero
+        
+        //根据style和space得到imageEdgeInsets和labelEdgeInsets的值
+        switch style {
+        case .top:
+            //上 左 下 右
+            imageEdgeInsets = UIEdgeInsets(top: -labelHeight-spacing/2, left: 0, bottom: 0, right: -labelWidth)
+            labelEdgeInsets = UIEdgeInsets(top: 0, left: -imageWidth!, bottom: -imageHeight!-spacing/2, right: 0)
+            break;
+            
+        case .left:
+            imageEdgeInsets = UIEdgeInsets(top: 0, left: -spacing/2, bottom: 0, right: spacing)
+            labelEdgeInsets = UIEdgeInsets(top: 0, left: spacing/2, bottom: 0, right: -spacing/2)
+            break;
+            
+        case .bottom:
+            imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: -labelHeight!-spacing/2, right: -labelWidth)
+            labelEdgeInsets = UIEdgeInsets(top: -imageHeight!-spacing/2, left: -imageWidth!, bottom: 0, right: 0)
+            break;
+            
+        case .right:
+            imageEdgeInsets = UIEdgeInsets(top: 0, left: labelWidth+spacing/2, bottom: 0, right: -labelWidth-spacing/2)
+            labelEdgeInsets = UIEdgeInsets(top: 0, left: -imageWidth!-spacing/2, bottom: 0, right: imageWidth!+spacing/2)
+            break;
+            
+        }
+        
+        self.titleEdgeInsets = labelEdgeInsets
+        self.imageEdgeInsets = imageEdgeInsets
+        
+    }
+}
+
+
+typealias CCornersRadius = (topLeft: CGFloat, topRight: CGFloat, bottomLeft: CGFloat, bottomRight: CGFloat)
+
+extension UIView {
+    // 自定义圆角
+
+    //创建Path
+    func createPath(bounds:CGRect, cornersRadius:CCornersRadius) -> CGPath {
+            let minX = bounds.minX
+            let minY = bounds.minY
+            let maxX = bounds.maxX
+            let maxY = bounds.maxY
+
+            let topLeftCenterX = minX + cornersRadius.topLeft
+            let topLeftCenterY = minY + cornersRadius.topLeft
+            let topRightCenterX = maxX - cornersRadius.topRight
+            let topRightCenterY = minY + cornersRadius.topRight
+            let bottomLeftCenterX = minX + cornersRadius.bottomLeft
+            let bottomLeftCenterY = maxY - cornersRadius.bottomLeft
+            let bottomRightCenterX = maxX - cornersRadius.bottomRight
+            let bottomRightCenterY = maxY - cornersRadius.bottomRight
+            
+            let path = CGMutablePath()
+            path.addArc(center: CGPoint(x: topLeftCenterX, y: topLeftCenterY), radius: cornersRadius.topLeft, startAngle: CGFloat(Double.pi), endAngle: CGFloat(3 * Double.pi / 2.0), clockwise: false)
+            path.addArc(center: CGPoint(x: topRightCenterX, y: topRightCenterY), radius: cornersRadius.topRight, startAngle: CGFloat(3 * Double.pi / 2.0), endAngle: 0, clockwise: false)
+            path.addArc(center: CGPoint(x: bottomRightCenterX, y: bottomRightCenterY), radius: cornersRadius.bottomRight, startAngle: 0, endAngle: CGFloat(Double.pi / 2.0), clockwise: false)
+            path.addArc(center: CGPoint(x: bottomLeftCenterX, y: bottomLeftCenterY), radius: cornersRadius.bottomLeft, startAngle: CGFloat(Double.pi / 2.0), endAngle: CGFloat(Double.pi), clockwise: false)
+            path.closeSubpath()
+            
+            return path
+    }
+}
+
+func getDateBytimeStamp(_ timeStamp: Int) -> String {
+    //转换为时间
+    let timeInterval:TimeInterval = TimeInterval(timeStamp)
+    let date = NSDate(timeIntervalSince1970: timeInterval)
+     
+    //格式化输出
+    let dformatter = DateFormatter()
+    dformatter.dateFormat = "yyyy-MM-dd"
+    let dateStr = dformatter.string(from: date as Date)
+    return dateStr
+}
+
+
+//MARK: Kingfisher
+//setImage(with: URL(string: urlString ?? ""),
+//placeholder: placeholder,
+//options:[.transition(.fade(0.5))])
+
+
+     
+      
+///appName
+func getAPPName() -> String{
+//    let infoDictionary = Bundle.main.infoDictionary
+//    CJKTLog("infoDictionary = \(infoDictionary)")
+     let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String
+    return appName!
+}
+///appVersion
+func getAPPVersion() -> String{
+     let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    return appVersion!
+}
+///appBulidVersion
+func  getAppBulidVersion() -> String{
+       let appBulidVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String
+    return appBulidVersion!
+}
