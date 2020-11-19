@@ -33,7 +33,7 @@ class CJKTPhoneViewController: CJKTBaseViewController {
 //
         guard let str = titleStr else {return}
         navigationController?.navigationItem.title = str
-        CJKTLog("titleStr = \(titleStr.debugDescription)")
+        kLog("titleStr = \(titleStr.debugDescription)")
           
         // 手势
                

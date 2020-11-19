@@ -1,5 +1,5 @@
 //
-//  CJKTLoginViewController.swift
+//  kLoginViewController.swift
 //  SwiftProject
 //
 //  Created by daixingchuang on 2020/4/27.
@@ -8,11 +8,11 @@
 
 import UIKit
 import Toast_Swift
-class CJKTLoginViewController: CJKTBaseViewController {
+class kLoginViewController: CJKTBaseViewController {
     lazy var iconImgV: UIImageView = {
         let img = UIImageView.init()
         img.contentMode = .scaleAspectFit
-        img.image = IMAGE("login_pic01")
+        img.image = kIMAGE("login_pic01")
         return img
     }()
     lazy var phoneTF: UITextField = {
@@ -118,9 +118,9 @@ class CJKTLoginViewController: CJKTBaseViewController {
             "code_type":"Login",
             ] as [String : Any]
         
-        CJKTMoyaAPIProvider.request(.logIn_code(dict: parameters)) { (result) in
-            
-        }
+//        CJKTMoyaAPIProvider.request(.logIn_code(dict: parameters)) { (result) in
+//            
+//        }
     }
 
     /*

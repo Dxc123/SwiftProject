@@ -33,12 +33,25 @@ class CJKTFourViewController: CJKTBaseViewController {
         self.dataArr = [
         "两个tableView间联动",
         "tableView与CollectionView联动",
-        "TabView分组圆角效果"
+        "TabView分组圆角效果",
+         "R.swift-优雅地引用项目资源",
+         "app内切换语言",
+         "优雅的使用UserDefaults",
+         "使用数据库缓存Model数据",
+         "JSON数据模型转换",
+         "自定义弹窗View封装"
+            
         ]
         self.classNameArr = [
-        "TwoTablevVewController",
-        "TabviewAndCollectionViewController",
-        "MyTableViewController"
+        "TwoTablevVewController",//"两个tableView间联动",
+        "TabviewAndCollectionViewController",//"tableView与CollectionView联动",
+        "MyTableViewController",//"TabView分组圆角效果",
+        "CJKTUesRSwiftViewController",//"R.swift-优雅地引用项目资源",
+        "CJKTSelectLanguageViewController",// "app内切换语言",
+        "CJKTUserDefaultViewController",//"优雅的使用UserDefaults",
+        "CJKTSaveModelDataViewController",//"使用数据库缓存Model数据",
+        "CJKTJSONViewController",//"JSON数据模型转换",
+        "CJKTCustomAlertViewViewController"// "自定义弹窗View封装"
         ]
         
         
@@ -82,7 +95,7 @@ extension CJKTFourViewController: UITableViewDelegate, UITableViewDataSource {
 //           }
 //swift 中NSClassFromString的使用：
 //        在swift中 NSClassFromString的参数不只是一个单独的类字符串,而是一个完整的包名加类名组成的字符串,也就是包类名字符串.也就是说需要在类名的前面加上你的工程名字
-        var className = getAPPName()
+        var className = kTool.getAPPName()
         className.append(".")
         className.append(self.classNameArr[indexPath.row] as! String)
         guard NSClassFromString(className as String)! is UIViewController.Type  else{

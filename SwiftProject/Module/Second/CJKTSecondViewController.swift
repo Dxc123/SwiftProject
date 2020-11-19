@@ -11,16 +11,19 @@ import PKHUD
 import JXPhotoBrowser
 import SwiftyJSON
 import HandyJSON
+import EmptyDataSet_Swift
 class CJKTSecondViewController: CJKTBaseViewController{
    var page = 1
    var count = 10
    var grilListlArry = [GrilListModel?]()
-    lazy var collectionView: UICollectionView = {
+   lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cw = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
         cw.backgroundColor = UIColor.white
         cw.delegate = self
         cw.dataSource = self
+        cw.emptyDataSetSource = self
+        cw.emptyDataSetDelegate = self
         cw.alwaysBounceVertical = true
         cw.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
         cw.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
@@ -59,10 +62,10 @@ class CJKTSecondViewController: CJKTBaseViewController{
     
     func loadData(moreData: Bool) -> Void{
         if moreData == true {
-           CJKTLog("true")
+           kLog("true")
            self.page = self.page + 1
         }else{
-            CJKTLog("false")
+            kLog("false")
            self.page = 1
         }
         
@@ -97,11 +100,12 @@ class CJKTSecondViewController: CJKTBaseViewController{
                     }
                     
                     self.collectionView.reloadData();//刷新
+                    self.collectionView.reloadEmptyDataSet()
                     self.collectionView.uHead.endRefreshing()
                     self.collectionView.uFoot.endRefreshing()
 
                 }else{
-                    CJKTLog("Error = \(result.error?.errorDescription)")
+                    kLog("Error = \(result.error?.errorDescription)")
                     
                     
                 }
@@ -127,7 +131,7 @@ class CJKTSecondViewController: CJKTBaseViewController{
 
 extension CJKTSecondViewController:UICollectionViewDelegateFlowLayout, UICollectionViewDelegate ,UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.grilListlArry.count;
+        return 0//self.grilListlArry.count;
        }
        
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -142,7 +146,7 @@ extension CJKTSecondViewController:UICollectionViewDelegateFlowLayout, UICollect
        }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        CJKTLog("点击\(indexPath.row)")
+        kLog("点击\(indexPath.row)")
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CJKTSecondCollectionCell", for: indexPath) as!CJKTSecondCollectionCell
 //        let model = self.grilListlArry[indexPath.row] as  GrilListModel?
 //
@@ -215,5 +219,24 @@ extension CJKTSecondViewController:UICollectionViewDelegateFlowLayout, UICollect
 
 }
 
-
-
+extension CJKTSecondViewController: EmptyDataSetSource,EmptyDataSetDelegate {
+    func customView(forEmptyDataSet scrollView: UIScrollView) -> UIView?{
+//        guard self.customEmptyView == nil else {
+//
+//
+//        }
+        let customEmptyView = CustomEmptyView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT/2))
+        customEmptyView.tapClosure = {
+            kLog("刷新")
+        }
+        customEmptyView.snp.makeConstraints { (make) in
+            make.height.equalTo(SCREEN_HEIGHT/2+150)
+        }
+      
+        return customEmptyView
+    }
+    
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat{
+        return -80
+    }
+}

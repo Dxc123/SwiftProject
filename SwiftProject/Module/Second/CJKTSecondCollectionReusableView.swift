@@ -21,14 +21,14 @@ class CJKTSecondCollectionReusableView: CJKTBaseCollectionReusableView {
     weak var delegate: CJKTSecondCollectionReusableViewDelegate?
     var selectIndexClosure: selectIndexClosure?
     
-        lazy var moreButton: UIButton = {
-               let mn = UIButton(type: .system)
-               mn.setTitle("•••", for: .normal)
-               mn.setTitleColor(UIColor.lightGray, for: .normal)
-               mn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-            mn.addTarget(self, action: #selector(moreAction(_:)), for: .touchUpInside)
-               return mn
-           }()
+    lazy var moreButton: UIButton = {
+           let mn = UIButton(type: .system)
+           mn.setTitle("•••", for: .normal)
+           mn.setTitleColor(UIColor.lightGray, for: .normal)
+           mn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        mn.addTarget(self, action: #selector(moreAction(_:)), for: .touchUpInside)
+           return mn
+       }()
     
     @objc func moreAction(_ button: UIButton) {
         delegate?.didselectHead(self, button.tag)

@@ -25,23 +25,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.backgroundColor = .white
             self.window = window
             window.makeKeyAndVisible()
+            //        每次启动 APP 都获取一次当前系统配置的 bundle
+            if UserDefaults.standard.bool(forKey: kIsSetLanguage) {
+                kLog("设置过语言")//取设置过的语言
+               if let userLanguage = UserDefaults.standard.value(forKey: kUserLanguage) as? String   {
+                   LocalizationManger.shareManger.setUserLanguage(language: userLanguage)
+               }
+            }else{//
+                 kLog("未设置过语言")//直接获取手机系统语言
+                APPConfig.getSystemLanguage()
+            }
             
-            if !UserDefaults.standard.bool(forKey: "FirstLaunchKey") {
-                CJKTLog("第一次进入")
-                UserDefaults.standard.set(true, forKey: "FirstLaunchKey")
-                let window = UIWindow(windowScene: windowScene)
-                window.rootViewController = CJKTLoginViewController()
-                window.backgroundColor = .white
-                self.window = window
-                window.makeKeyAndVisible()
-            } else {
-                CJKTLog("再次进入")
-                let window = UIWindow(windowScene: windowScene)
+//            if !UserDefaults.standard.bool(forKey: "FirstLaunchKey") {
+//                kLog("第一次进入")
+//                UserDefaults.standard.set(true, forKey: "FirstLaunchKey")
+//                let window = UIWindow(windowScene: windowScene)
+//                window.rootViewController = kLoginViewController()
+//                window.backgroundColor = .white
+//                self.window = window
+//                window.makeKeyAndVisible()
+//            } else {
+                kLog("再次进入")
                 window.rootViewController = CJKTTabBarController()
                 window.backgroundColor = .white
                 self.window = window
                 window.makeKeyAndVisible()
-            }
+//            }
             
         }
         

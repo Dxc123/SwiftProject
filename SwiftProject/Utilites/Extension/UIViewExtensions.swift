@@ -8,9 +8,45 @@
 
 import Foundation
 import UIKit
+
+
+ // MARK:--自定义圆角
+extension UIView {
+    func setCornersRadius(bounds:CGRect, topLeft: CGFloat, topRight: CGFloat, bottomLeft: CGFloat, bottomRight: CGFloat) {
+            let minX = bounds.minX
+            let minY = bounds.minY
+            let maxX = bounds.maxX
+            let maxY = bounds.maxY
+
+            let topLeftCenterX = minX + topLeft
+            let topLeftCenterY = minY + topLeft
+            let topRightCenterX = maxX - topRight
+            let topRightCenterY = minY + topRight
+            let bottomLeftCenterX = minX + bottomLeft
+            let bottomLeftCenterY = maxY - bottomLeft
+            let bottomRightCenterX = maxX - bottomRight
+            let bottomRightCenterY = maxY - bottomRight
+            
+            let path = CGMutablePath()
+            path.addArc(center: CGPoint(x: topLeftCenterX, y: topLeftCenterY), radius:topLeft, startAngle: CGFloat(Double.pi), endAngle: CGFloat(3 * Double.pi / 2.0), clockwise: false)
+            path.addArc(center: CGPoint(x: topRightCenterX, y: topRightCenterY), radius: topRight, startAngle: CGFloat(3 * Double.pi / 2.0), endAngle: 0, clockwise: false)
+            path.addArc(center: CGPoint(x: bottomRightCenterX, y: bottomRightCenterY), radius: bottomRight, startAngle: 0, endAngle: CGFloat(Double.pi / 2.0), clockwise: false)
+            path.addArc(center: CGPoint(x: bottomLeftCenterX, y: bottomLeftCenterY), radius: bottomLeft, startAngle: CGFloat(Double.pi / 2.0), endAngle: CGFloat(Double.pi), clockwise: false)
+            path.closeSubpath()
+        
+           let maskPath = UIBezierPath.init(cgPath: path)
+           let maskLayer = CAShapeLayer()
+           maskLayer.frame = bounds
+           maskLayer.path = maskPath.cgPath
+           layer.addSublayer(maskLayer)
+           layer.mask = maskLayer
+    }
+}
+
+ // MARK:--裁剪 view 的圆角
 extension UIView {
     /// 裁剪 view 的圆角
-    public func clipRectCorner(direction: UIRectCorner, cornerRadius: CGFloat) {
+    public func setRectCorner(direction: UIRectCorner, cornerRadius: CGFloat) {
         let cornerSize = CGSize(width: cornerRadius, height: cornerRadius)
         let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: direction, cornerRadii: cornerSize)
         let maskLayer = CAShapeLayer()
@@ -19,104 +55,115 @@ extension UIView {
         layer.addSublayer(maskLayer)
         layer.mask = maskLayer
     }
-    
-    /// x
-    public var x: CGFloat {
-        get {
-            return frame.origin.x
-        }
-        set(newValue) {
-            var tempFrame: CGRect = frame
-            tempFrame.origin.x    = newValue
-            frame                 = tempFrame
-        }
-    }
-    
-    /// y
-   public var y: CGFloat {
-        get {
-            return frame.origin.y
-        }
-        set(newValue) {
-            var tempFrame: CGRect = frame
-            tempFrame.origin.y    = newValue
-            frame                 = tempFrame
-        }
-    }
-    
-    /// height
-   public var height: CGFloat {
-        get {
-            return frame.size.height
-        }
-        set(newValue) {
-            var tempFrame: CGRect = frame
-            tempFrame.size.height = newValue
-            frame                 = tempFrame
-        }
-    }
-    
-    /// width
-    public var width: CGFloat {
-        get {
-            return frame.size.width
-        }
-        set(newValue) {
-            var tempFrame: CGRect = frame
-            tempFrame.size.width = newValue
-            frame = tempFrame
-        }
-    }
-    
-    /// size
-    public var size: CGSize {
-        get {
-            return frame.size
-        }
-        set(newValue) {
-            var tempFrame: CGRect = frame
-            tempFrame.size = newValue
-            frame = tempFrame
-        }
-    }
-    
-    /// centerX
-    public var centerX: CGFloat {
-        get {
-            return center.x
-        }
-        set(newValue) {
-            var tempCenter: CGPoint = center
-            tempCenter.x = newValue
-            center = tempCenter
-        }
-    }
-    
-    /// centerY
-    public var centerY: CGFloat {
-        get {
-            return center.y
-        }
-        set(newValue) {
-            var tempCenter: CGPoint = center
-            tempCenter.y = newValue
-            center = tempCenter;
-        }
-    }
-    
+   
 
 }
 
+//扩展UIView便捷修改frame
+extension UIView{
+    
+       /// x
+       public var x: CGFloat {
+           get {
+               return frame.origin.x
+           }
+           set(newValue) {
+               var tempFrame: CGRect = frame
+               tempFrame.origin.x    = newValue
+               frame                 = tempFrame
+           }
+       }
+       
+       /// y
+      public var y: CGFloat {
+           get {
+               return frame.origin.y
+           }
+           set(newValue) {
+               var tempFrame: CGRect = frame
+               tempFrame.origin.y    = newValue
+               frame                 = tempFrame
+           }
+       }
+       
+       /// height
+      public var height: CGFloat {
+           get {
+               return frame.size.height
+           }
+           set(newValue) {
+               var tempFrame: CGRect = frame
+               tempFrame.size.height = newValue
+               frame                 = tempFrame
+           }
+       }
+       
+       /// width
+       public var width: CGFloat {
+           get {
+               return frame.size.width
+           }
+           set(newValue) {
+               var tempFrame: CGRect = frame
+               tempFrame.size.width = newValue
+               frame = tempFrame
+           }
+       }
+       
+       /// size
+       public var size: CGSize {
+           get {
+               return frame.size
+           }
+           set(newValue) {
+               var tempFrame: CGRect = frame
+               tempFrame.size = newValue
+               frame = tempFrame
+           }
+       }
+       
+       /// centerX
+       public var centerX: CGFloat {
+           get {
+               return center.x
+           }
+           set(newValue) {
+               var tempCenter: CGPoint = center
+               tempCenter.x = newValue
+               center = tempCenter
+           }
+       }
+       
+       /// centerY
+       public var centerY: CGFloat {
+           get {
+               return center.y
+           }
+           set(newValue) {
+               var tempCenter: CGPoint = center
+               tempCenter.y = newValue
+               center = tempCenter;
+           }
+       }
+       
+}
 
+
+
+
+
+
+
+
+
+// MARK: - 扩展UIView,增加抖动方法
 
 public enum ShakeDirection: Int
 {
     case horizontal
     case vertical
 }
-
 extension UIView{
-    // MARK: - 扩展UIView,增加抖动方法
     ///
     /// - Parameters:
     ///   - direction: 抖动方向（默认是水平方向）

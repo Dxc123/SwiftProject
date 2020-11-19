@@ -49,6 +49,7 @@ class CJKTHomeViewController: CJKTBaseViewController {
         view.backgroundColor = UIColor.red
         return view
     }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,11 +65,26 @@ class CJKTHomeViewController: CJKTBaseViewController {
         
 //        loadData(moreData: false)
         
-        CJKTAlamofireManager.sharInstance.requestDatas(.get, urlString: "https://gank.io/api/v2/data/category/Girl/type/Girl/page/1/count/10", paramaters: nil) { (response) in
-            let jsonDate = JSON.init(response)
-            print("jsonDate = \(jsonDate)")
-            
-        }
+//        CJKTAlamofireManager.sharInstance.requestDatas(.get, urlString: "https://gank.io/api/v2/data/category/Girl/type/Girl/page/1/count/10", paramaters: nil) { (response) in
+//            let jsonDate = JSON.init(response)
+//            print("jsonDate = \(jsonDate)")
+//
+//        }
+        let cornerView =  CJKTCornerView.init(frame: CGRect.init(x: 50, y: 100, width: 120, height: 80))
+         cornerView.topLeftCornerRadious = 15
+         cornerView.topRightCornerRadious = 40
+         cornerView.bottomLeftCornerRadious = 10
+         cornerView.bottomRightCornerRadious = 15
+         cornerView.backgroundColor = UIColor.red
+         view.addSubview(cornerView)
+        
+        let view2 = UIView.init(frame: CGRect.init(x: 50, y: 200, width: 120, height: 80))
+        view2.backgroundColor = UIColor.red
+       
+        view2.setCornersRadius(bounds: view2.bounds, topLeft: 20, topRight: 40, bottomLeft: 40, bottomRight: 20)
+        view.addSubview(view2);
+        
+        
         
     
         
@@ -83,30 +99,30 @@ class CJKTHomeViewController: CJKTBaseViewController {
         
 //         parameters = appendBaseParamaters(parameters: parameters)//拼接基本参数
         if moreData == true {
-            CJKTLog("true")
+            kLog("true")
             self.page = self.page + 1
         }else{
-             CJKTLog("false")
+             kLog("false")
             self.page = 1
         }
        
         
         CJKTMoyaAPIProvider3.request(.girl(page: self.page, count: self.count)) { (result) in
-//            CJKTLog("result = \(result)")
+//            kLog("result = \(result)")
 //            self.tableView.uHead.endRefreshing()
             
             if case let .success(result) = result {
             let data = try? result.mapJSON()// Moya
             let json = JSON(data!)// SwiftyJSON
-//              CJKTLog("json = \(json)")
+//              kLog("json = \(json)")
 //                if let grilModel = JSONDeserializer<GrilModel>.deserializeFrom(json: json.description){
 //
-//                    CJKTLog("page_count = \(grilModel.page_count)")
+//                    kLog("page_count = \(grilModel.page_count)")
 //                }
 //
 //               if let grilListModel =  JSONDeserializer<GrilListModel>.deserializeModelArrayFrom(json: json["data"].description){
 //
-//                CJKTLog("grilModelArry.count = \(grilListModel.count)")
+//                kLog("grilModelArry.count = \(grilListModel.count)")
 //                  self.grilListlArry = grilListModel
 //                }
                 //HandyJSON转模型
@@ -139,7 +155,7 @@ class CJKTHomeViewController: CJKTBaseViewController {
                 self.tableView.uFoot.endRefreshing()
 
             }else{
-                CJKTLog("Error = \(result.error?.errorDescription)")
+                kLog("Error = \(result.error?.errorDescription)")
                 
                 
             }
@@ -189,7 +205,7 @@ extension CJKTHomeViewController: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        CJKTLog("点击了\(indexPath.row)")
+        kLog("点击了\(indexPath.row)")
         
     }
     

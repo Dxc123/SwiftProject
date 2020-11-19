@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  SwiftProject
+
+  Created by daixingchuang on 2020/11/8.
+  Copyright © 2020 Dxc_iOS. All rights reserved.
+*/
+CFBundleDisplayName = "Swift练习项目";
+//MARK:--语言
+"language.Chinese" = "中文";
+"welcomeMessage" = "欢迎";

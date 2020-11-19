@@ -167,7 +167,7 @@ class CJKTPhotoBrowserCell: UICollectionViewCell {
     
 ////图片滑动事件响应
           @objc  func swipeGesture(recognizer: UISwipeGestureRecognizer){
-            CJKTLog("滑动")
+            kLog("滑动")
             self.responderViewController()?.navigationController?.popViewController(animated: true)
         
          }
