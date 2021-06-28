@@ -8,10 +8,6 @@
 
 import UIKit
 
-//class CJKTAlertProtocol: NSObject {
-//
-//}
-
 public enum AppearFrom {
     case top, bottom, left, right
 }

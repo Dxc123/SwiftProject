@@ -36,10 +36,10 @@ class CJKTFourViewController: CJKTBaseViewController {
         "TabView分组圆角效果",
          "R.swift-优雅地引用项目资源",
          "app内切换语言",
-         "优雅的使用UserDefaults",
          "使用数据库缓存Model数据",
          "JSON数据模型转换",
-         "自定义弹窗View封装"
+         "自定义弹窗View封装",
+         "RxSwift使用示例"
             
         ]
         self.classNameArr = [
@@ -48,10 +48,10 @@ class CJKTFourViewController: CJKTBaseViewController {
         "MyTableViewController",//"TabView分组圆角效果",
         "CJKTUesRSwiftViewController",//"R.swift-优雅地引用项目资源",
         "CJKTSelectLanguageViewController",// "app内切换语言",
-        "CJKTUserDefaultViewController",//"优雅的使用UserDefaults",
         "CJKTSaveModelDataViewController",//"使用数据库缓存Model数据",
         "CJKTJSONViewController",//"JSON数据模型转换",
-        "CJKTCustomAlertViewViewController"// "自定义弹窗View封装"
+        "CJKTCustomAlertViewViewController",// "自定义弹窗View封装"
+        "CJKTUseRxSwiftViewController"
         ]
         
         

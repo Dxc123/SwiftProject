@@ -29,6 +29,11 @@ class CJKTUesRSwiftViewController: CJKTBaseViewController {
     }()
    @objc func btnAction(_ button: UIButton){
     }
+    private lazy var starBtn: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.frame = CGRect.init(x: 10, y: 100, width: 50, height: 50)
+        return btn
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +67,15 @@ class CJKTUesRSwiftViewController: CJKTBaseViewController {
         
         kUserDefault.setkey(22, key: "key222")
         kLog("valu22  = \(String(describing: kUserDefault.getKey( "key222")))")
+//        Date.sf_getDay(<#T##self: Date##Date#>)
+//        Date.sf_getMilliSeconds
+//        kPostNoti(<#T##name: NSNotification.Name##NSNotification.Name#>, <#T##object: Any?##Any?#>)
+//        kUserDefaultsGetKey(<#T##key: String##String#>)
+        
+//        view.addSubview(starBtn)
+//        starBtn.asStarFavoriteButton(pointSize: 16, weight: .semibold, scale: .default, fillColor: .red)
+        
+        
     }
     
 

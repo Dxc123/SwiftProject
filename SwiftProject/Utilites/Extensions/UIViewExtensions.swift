@@ -9,6 +9,31 @@
 import Foundation
 import UIKit
 
+extension UIView{
+    /**注册 NIb*/
+    class func sistaViewNib() -> UINib { //bibu_viewNib
+        let hasNib: Bool = Bundle.main.path(forResource: self.nib_className, ofType: "nib") != nil
+        guard hasNib else {
+            assert(!hasNib, "Nib is not exist")
+            return UINib()
+        }
+        return UINib(nibName: self.nib_className, bundle:nil)
+    }
+     
+    /**注册 NIb*/
+    class func sistaViewFromNib<T>(_ aClass: T.Type) -> T { //bibu_viewFromNib
+        let name = String(describing: aClass)
+        if Bundle.main.path(forResource: name, ofType: "nib") != nil {
+            return UINib(nibName: name, bundle:nil).instantiate(withOwner: nil, options: nil)[0] as! T
+        } else {
+            fatalError("\(String(describing: aClass)) nib is not exist")
+        }
+    }
+    /**注册nib(class)*/
+    class var nib_className: String {
+        return String(describing: self.self)
+    }
+}
 
  // MARK:--自定义圆角
 extension UIView {
@@ -58,104 +83,6 @@ extension UIView {
    
 
 }
-
-//扩展UIView便捷修改frame
-extension UIView{
-    
-       /// x
-       public var x: CGFloat {
-           get {
-               return frame.origin.x
-           }
-           set(newValue) {
-               var tempFrame: CGRect = frame
-               tempFrame.origin.x    = newValue
-               frame                 = tempFrame
-           }
-       }
-       
-       /// y
-      public var y: CGFloat {
-           get {
-               return frame.origin.y
-           }
-           set(newValue) {
-               var tempFrame: CGRect = frame
-               tempFrame.origin.y    = newValue
-               frame                 = tempFrame
-           }
-       }
-       
-       /// height
-      public var height: CGFloat {
-           get {
-               return frame.size.height
-           }
-           set(newValue) {
-               var tempFrame: CGRect = frame
-               tempFrame.size.height = newValue
-               frame                 = tempFrame
-           }
-       }
-       
-       /// width
-       public var width: CGFloat {
-           get {
-               return frame.size.width
-           }
-           set(newValue) {
-               var tempFrame: CGRect = frame
-               tempFrame.size.width = newValue
-               frame = tempFrame
-           }
-       }
-       
-       /// size
-       public var size: CGSize {
-           get {
-               return frame.size
-           }
-           set(newValue) {
-               var tempFrame: CGRect = frame
-               tempFrame.size = newValue
-               frame = tempFrame
-           }
-       }
-       
-       /// centerX
-       public var centerX: CGFloat {
-           get {
-               return center.x
-           }
-           set(newValue) {
-               var tempCenter: CGPoint = center
-               tempCenter.x = newValue
-               center = tempCenter
-           }
-       }
-       
-       /// centerY
-       public var centerY: CGFloat {
-           get {
-               return center.y
-           }
-           set(newValue) {
-               var tempCenter: CGPoint = center
-               tempCenter.y = newValue
-               center = tempCenter;
-           }
-       }
-       
-}
-
-
-
-
-
-
-
-
-
 // MARK: - 扩展UIView,增加抖动方法
 
 public enum ShakeDirection: Int
@@ -196,3 +123,61 @@ extension UIView{
         }
     }
 }
+
+public enum GradientDirection: Int{
+    ///水平
+    case horizontal
+    ///垂直
+    case vertical
+}
+
+// MARK:-- UIView添加渐变色图层
+public extension UIView {
+    
+   
+//  使用:   sendGiftBtn.setGradientColor(direction: .horizontal, colors: [.red.cgColor ,.blue.cgColor])
+    func setGradientColor(direction: GradientDirection = .horizontal, colors: [Any]) {
+       //    //水平方向渐变色  (x: 0, y: 0.5) (x: 1.0, y: 0.5)
+       //   //垂直方向渐变色  (x: 0.5, y: 0) (x: 0.5, y: 1)
+        var startPoint = CGPoint.init(x: 0, y: 0.5)
+        var endPoint   = CGPoint.init(x: 1.0, y: 0.5)
+        switch direction {
+        case .horizontal:
+            startPoint = CGPoint.init(x: 0, y: 0.5)
+            endPoint   = CGPoint.init(x: 1.0, y: 0.5)
+        case .vertical:
+            startPoint = CGPoint.init(x: 0.5, y: 0)
+            endPoint   = CGPoint.init(x: 0.5, y: 1)
+        }
+        
+       // 外界如果改变了self的大小，需要先刷新
+       layoutIfNeeded()
+       var gradientLayer: CAGradientLayer!
+       removeGradientLayer()
+       gradientLayer = CAGradientLayer()
+       gradientLayer.frame = self.layer.bounds
+       gradientLayer.startPoint = startPoint
+       gradientLayer.endPoint = endPoint
+       gradientLayer.colors = colors
+       gradientLayer.cornerRadius = self.layer.cornerRadius
+       gradientLayer.masksToBounds = true
+       // 渐变图层插入到最底层，避免在uibutton上遮盖文字图片
+       self.layer.insertSublayer(gradientLayer, at: 0)
+       self.backgroundColor = UIColor.clear
+       // self如果是UILabel，masksToBounds设为true会导致文字消失
+       self.layer.masksToBounds = false
+    }
+    
+        // 移除渐变图层
+        // （当希望只使用backgroundColor的颜色时，需要先移除之前加过的渐变图层）
+        public func removeGradientLayer() {
+            if let sl = self.layer.sublayers {
+                for layer in sl {
+                    if layer.isKind(of: CAGradientLayer.self) {
+                        layer.removeFromSuperlayer()
+                    }
+                }
+            }
+        }
+}
+

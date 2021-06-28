@@ -14,7 +14,7 @@ class CJKTTabBarController: UITabBarController {
         super.viewDidLoad()
 
         tabBar.isTranslucent = false
-         let homeVC = CJKTHomeViewController()
+        let homeVC = CJKTHomeViewController()
         addChildViewController(homeVC,
         title: "首页",
         image: UIImage(named: "tab_home"),

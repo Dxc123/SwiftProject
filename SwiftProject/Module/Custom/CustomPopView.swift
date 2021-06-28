@@ -5,7 +5,7 @@
 //  Created by daixingchuang on 2020/9/18.
 //  Copyright © 2020 Dxc_iOS. All rights reserved.
 //
-//自定义弹出模板
+//自定义弹窗模板
 import UIKit
 import SnapKit
 let containerH: CGFloat = 300.0

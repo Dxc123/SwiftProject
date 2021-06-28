@@ -8,11 +8,23 @@
 
 import Foundation
 import UIKit
-
-extension UIButton {
+public extension UIButton {
+    /**
+     Set UIButton's backgroundColor with a UIImage
+     */
+    func setBackgroundColor(_ color: UIColor, forState: UIControl.State) {
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+        UIGraphicsGetCurrentContext()?.setFillColor(color.cgColor)
+        UIGraphicsGetCurrentContext()?.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+        let theImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.setBackgroundImage(theImage, for: forState)
+    }
+}
+public extension UIButton {
    
     ///MARK:--调整按钮中的图标和文字位置(适配 RTL布局)
-    public func setTitlePosition(image: UIImage?,
+   func setTitlePosition(image: UIImage?,
                                  title: String,
                    titlePosition: UIView.ContentMode,
                    contentSpacing: CGFloat,
@@ -89,19 +101,18 @@ extension UIButton {
         self.imageEdgeInsets = imageInsets
     }
 }
-extension UIButton {
 
-    //MARK: -定义button 内Image相对label的位置
-    enum ButtonImagePosition {
-            case top          //图片在上，文字在下，垂直居中对齐
-            case bottom       //图片在下，文字在上，垂直居中对齐
-            case left         //图片在左，文字在右，水平居中对齐
-            case right        //图片在右，文字在左，水平居中对齐
-    }
-    /// - Description 设置Button图片的位置
-    /// - Parameters:
-    ///   - style: 图片位置
-    ///   - spacing: 按钮图片与文字之间的间隔
+
+public enum ButtonImagePosition {
+        case top          //图片在上，文字在下，垂直居中对齐
+        case bottom       //图片在下，文字在上，垂直居中对齐
+        case left         //图片在左，文字在右，水平居中对齐
+        case right        //图片在右，文字在左，水平居中对齐
+}
+public extension UIButton {
+
+   
+    ///设置Button图片的位置
     func setImagePosition(style: ButtonImagePosition, spacing: CGFloat) {
         //得到imageView和titleLabel的宽高
         let imageWidth = self.imageView?.frame.size.width
@@ -150,19 +161,10 @@ extension UIButton {
 
 
 
-extension UIButton {
+public extension UIButton {
    
     /// 文字的按钮
-    ///
-    /// - Parameters:
-    ///   - title: 标题
-    ///   - titleFont: 标题文本尺寸
-    ///   - titleColor: 标题颜色
-    ///   - bgColor: 背景色
-    ///   - obj: 按钮响应对象
-    ///   - methord: 按钮事件
-    /// - Returns: 按钮
-    public class func creatBtn(title: String, titleFont: UIFont, titleColor: UIColor = .black, bgColor: UIColor = .clear, obj: AnyObject?, methord: Selector?) -> UIButton {
+    class func creatBtn(title: String, titleFont: UIFont, titleColor: UIColor = .black, bgColor: UIColor = .clear, obj: AnyObject?, methord: Selector?) -> UIButton {
         let btn = UIButton.init(type: .custom)
         btn.setTitle(title, for: .normal)
         btn.setTitleColor(titleColor, for: .normal)
@@ -175,14 +177,7 @@ extension UIButton {
     }
     
     /// 图片按钮
-    ///
-    /// - Parameters:
-    ///   - img: 背景图片
-    ///   - selectImg: 选中背景图片
-    ///   - obj: 按钮响应对象
-    ///   - methord: 按钮事件
-    /// - Returns: 按钮
-    public class func creatBtn(img: String, selectImg: String?, obj: AnyObject?, methord: Selector?) -> UIButton {
+    class func creatBtn(img: String, selectImg: String?, obj: AnyObject?, methord: Selector?) -> UIButton {
         let btn = UIButton.init(type: .custom)
         btn.setImage(UIImage.init(named: img), for: .normal)
         if selectImg != nil {
@@ -202,7 +197,7 @@ extension UIButton {
     ///   - obj: 按钮响应对象
     ///   - methord: 按钮事件
     /// - Returns: 按钮
-    public class func creatBtn(bgImg: String, selectBgImg: String?, obj: AnyObject?, methord: Selector?) -> UIButton {
+    class func creatBtn(bgImg: String, selectBgImg: String?, obj: AnyObject?, methord: Selector?) -> UIButton {
         let btn = UIButton.init(type: .custom)
         btn.setBackgroundImage(UIImage.init(named: bgImg), for: .normal)
         if selectBgImg != nil {
@@ -220,7 +215,7 @@ extension UIButton {
     ///   - title: 重置标题
     ///   - timeOut: 倒计时
     ///   - waitTime: 等待时间
-    public func creatBtn(title: String, timeOut: NSInteger, waitTitle: String) {
+   func creatBtn(title: String, timeOut: NSInteger, waitTitle: String) {
         let timer = DispatchSource.makeTimerSource()
         timer.setEventHandler {
             if timeOut <= 0 {

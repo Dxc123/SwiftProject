@@ -16,6 +16,7 @@ extension UIColor {
                   alpha: a)
     }
     
+    /**随机色*/
     class var random: UIColor {
         return UIColor(r: arc4random_uniform(256),
                        g: arc4random_uniform(256),
@@ -32,8 +33,8 @@ extension UIColor {
         UIGraphicsEndImageContext()
         return image!
     }
-    
-   public class func hexString(hexString: String) -> UIColor {
+    /**16 进制颜色*/
+   public class func  hexString(hexString: String) -> UIColor {
         var cString: String = hexString.trimmingCharacters(in: .whitespacesAndNewlines)
         if cString.count < 6 { return UIColor.black }
         
@@ -67,3 +68,15 @@ extension UIColor {
 }
 
 
+
+extension UIColor{
+    /**动态设置暗黑色*/
+    /// 动态设置暗黑色
+    static func dynamicColor(light: UIColor, dark: UIColor) -> UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor { $0.userInterfaceStyle == .dark ? dark : light }
+        } else {
+            return light
+        }
+    }
+}
